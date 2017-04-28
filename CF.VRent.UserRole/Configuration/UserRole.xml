@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UserRole>
+  <Role key="BU" enabled="true">
+    <!--Set the "Booking User Role Name" here-->
+    <KemasRole name="Employee" id="" enabled="true" isDefault="true"></KemasRole>
+  </Role>
+  <Role key="SC" enabled="true">
+    <!--Set the "Service Center User Role Name" here-->
+    <KemasRole name="Customer Service Agent" id="" enabled="true" isDefault="true"></KemasRole>
+  </Role>
+  <Role key="SCL" enabled="true">
+    <!--Set the "Operation Manager User Role Name" here-->
+    <KemasRole name="Operation Manager" id="" enabled="true" isDefault="true"></KemasRole>
+  </Role>
+  <Role key="VM" enabled="true">
+    <!--Set the "VRent Manager User Role Name" here-->
+    <KemasRole name="VRent Manager" id="" enabled="true" isDefault="true"></KemasRole>
+  </Role>
+  <Role key="ADMIN" enabled="true">
+    <!--Set the "Administration User Role Name" here-->
+    <KemasRole name="Administration" id="" enabled="true" isDefault="true"></KemasRole>
+  </Role>
+</UserRole>

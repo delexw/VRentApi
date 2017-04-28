@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="themes/icon.css" rel="stylesheet" />
+    <link href="js/JSONFormatter.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <script src="js/JSONFormatter.js"></script>
+    <script type="text/javascript">
+        var typData = [{ 'id': 1, 'text': 'Info' }, { 'id': 2, 'text': 'Debug' }, { 'id': 3, 'text': 'Error' }]
+        $(function () {
+            $.post("LogView.ashx", { action: 'getTyppe' }, function (data) {
+                $('#cc').combobox({
+                    valueField: 'id',
+                    textField: 'text',
+                    onSelect: function (record) {
+                        $('#dg').datagrid('load', { action: 'getLog', file: record.text });
+
+                        $('#tp').combobox({
+                            valueField: 'id',
+                            textField: 'text',
+                            data: typData,
+                            onSelect: function (type) {
+                                $('#dg').datagrid('load', { action: 'getLog', file: record.text, type: type.text });
+                            }
+                        });
+                    }
+                }).combobox('loadData', data);
+            });
+        })
+
+        function onBeforeLoad(param) {
+            if (param.file === undefined)
+                return false;
+        }
+
+        function onSelect(index, row)
+        {
+            $('#ff').form('load', row);
+            var con = row.content;
+            var contentJson = {};
+            try {
+                contentJson = JSON.parse(con);
+            }
+            catch (e)
+            {
+                contentJson = { 'message': con };
+            }
+
+            $('#contentFormatter').children().remove();
+            JSONFormatter.format(contentJson, { 'appendTo': '#contentFormatter', 'collapse': false });
+        }
+    </script>
+</head>
+<body class="easyui-layout">
+    <div region="center" style="padding:5px;" border="false">
+        <table id="dg" class="easyui-datagrid" title="Log"
+               data-options="singleSelect:true,collapsible:true,method:'get',
+           pagination:true,onBeforeLoad:onBeforeLoad,url:'LogView.ashx',
+           queryParams: { 'action': 'getLog' },toolbar: '#tb',fit:true,pageSize:50,onSelect:onSelect">
+            <thead>
+                <tr>
+                    <th data-options="field:'time',resizable:false,sortable:true" width="15%">Time</th>
+                    <th data-options="field:'type',resizable:false,sortable:true" width="10%">Type</th>
+                    <th data-options="field:'title',resizable:false,sortable:true" width="15%">Title</th>
+                    <th data-options="field:'content',resizable:false,sortable:true" width="55%">Content</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div data-options="region:'east',split:true,title:'Detalis',collapsible:false" style="width:50%;">
+        <form id="ff" method="post">
+            <table cellpadding="5">
+                <tr>
+                    <td>time:</td>
+                    <td><input class="easyui-textbox" type="text" name="time" /></td>
+                </tr>
+                <tr>
+                    <td>type:</td>
+                    <td><input class="easyui-textbox" type="text" name="type"/></td>
+                </tr>
+                <tr>
+                    <td>title:</td>
+                    <td><input class="easyui-textbox" type="text" name="title" /></td>
+                </tr>
+                <tr>
+                    <td>content:</td>
+                    <td><div id="contentFormatter"></div></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="tb" style="padding:5px">
+        Select Log File : <input id="cc" name="dept" />
+        Select Log Type : <input id="tp" name="type" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Setting name="Sign" value="1" order="1">
+  </Setting>
+  <Setting name="CompanyCode" value="4070" order="2">
+  </Setting>
+  <Setting name="Currency" value="CNY" order="3">
+  </Setting>
+  <Setting name="DocumentType" value="IE" order="4">
+  </Setting>
+  <Setting name="PostingDate" value="" order="5">
+  </Setting>
+  <Setting name="DocumentDate" value="" order="6">
+  </Setting>
+  <Setting name="Reference" value="(Header Reference)" order="7">
+  </Setting>
+  <Setting name="DocumentHeaderText" value="(Header Description)" order="8">
+  </Setting>
+</Settings>

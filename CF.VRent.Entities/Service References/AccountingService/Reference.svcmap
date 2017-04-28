@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f53b8cb4-0335-40a7-b7fe-5dc373bd4451" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8011/AccountingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AccountingService.xsd" MetadataType="Schema" ID="de22a6d5-6401-4b7d-9d4d-0a29b459da54" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AccountingService1.xsd" MetadataType="Schema" ID="50ba151f-570d-4dad-b0c1-6550b096de1c" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd7" />
+    <MetadataFile FileName="AccountingService2.xsd" MetadataType="Schema" ID="7f5bc742-6909-438a-b5ee-641e26c24107" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AccountingService3.xsd" MetadataType="Schema" ID="a71d8e3e-44b8-47d7-8158-c8da6e5f393d" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountingService4.xsd" MetadataType="Schema" ID="207eb015-6137-42bc-badc-226096947907" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountingService5.xsd" MetadataType="Schema" ID="0577e0ea-d67f-433c-8391-9af7caaac8c2" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccountingService6.xsd" MetadataType="Schema" ID="90783f5a-18d2-4ee6-85e9-dbdaef95ec7e" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AccountingService.wsdl" MetadataType="Wsdl" ID="3b7c9e38-4548-4902-9366-195539c8a560" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?wsdl" />
+    <MetadataFile FileName="AccountingService7.xsd" MetadataType="Schema" ID="dbb6092a-81de-406c-98a0-397e42f471da" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?xsd=xsd6" />
+    <MetadataFile FileName="AccountingService.disco" MetadataType="Disco" ID="7373f3a9-48b0-47ab-b582-38a6bcff0dbe" SourceId="1" SourceUrl="http://localhost:8011/AccountingService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

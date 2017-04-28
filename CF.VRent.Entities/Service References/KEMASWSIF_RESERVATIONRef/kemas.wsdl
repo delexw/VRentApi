@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n1="http://kemas.de/vwnms/reservation:rfc:functions" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://kemas.de/vwnms/reservation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://kemas.de/vwnms/reservation" name="kemas" targetNamespace="http://kemas.de/vwnms/reservation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:n0="http://kemas.de/vwnms/reservation:rfc:functions" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://kemas.de/vwnms/reservation">
+      <xs:complexType name="checkPrice2_Request">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element name="BookingData">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="ID" type="xs:string" />
+                <xs:element name="DateBegin" type="xs:string" />
+                <xs:element name="DateEnd" type="xs:string" />
+                <xs:element name="Driver" type="xs:string" />
+                <xs:element name="StartLocation" type="xs:string" />
+                <xs:element name="BillingOption" type="xs:int" />
+                <xs:element name="Category" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateReservation2_Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="Reservation" type="ns:Reservation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateReservation2_Request">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element name="ReservationData" type="ns:ReservationData" />
+          <xs:element name="Language" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBookingOptions_Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Locations" type="ns:Struct_ID_Name" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingOptions" type="ns:BillingOption" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Drivers" type="ns:Struct_ID_Name" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Struct_ID_Name">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findReservations2_Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element name="rows" type="xs:integer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Reservations" type="ns:Reservation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findReservation2_Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="Reservation" type="ns:Reservation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Reservation">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="StartLocation" type="ns:Struct_ID_Name" />
+          <xs:element name="BillingOption" type="ns:BillingOption" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Creator" type="ns:UserData" />
+          <xs:element name="Driver" type="ns:UserData" />
+          <xs:element name="CarID" type="xs:string" />
+          <xs:element name="Car" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="PickupBegin" type="xs:string" />
+          <xs:element name="PickupEnd" type="xs:string" />
+          <xs:element name="KeyOut" type="xs:string" />
+          <xs:element name="KeyIn" type="xs:string" />
+          <xs:element name="State" type="xs:string" />
+          <xs:element name="Price" type="xs:string" />
+          <xs:element name="PriceDetail" type="xs:string" />
+          <xs:element name="PaymentStatus" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserData">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="PNo" type="xs:string" />
+          <xs:element name="Enabled" type="xs:int" />
+          <xs:element name="Blocked" type="xs:int" />
+          <xs:element name="Status" type="xs:string" />
+          <xs:element name="AllowChangePwd" type="xs:int" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Department" type="xs:string" />
+          <xs:element name="Phone" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="CreateDate" type="xs:string" />
+          <xs:element name="Company" type="xs:string" />
+          <xs:element name="PersonInCharge" type="xs:string" />
+          <xs:element name="PrivateMobileNumber" type="xs:string" />
+          <xs:element name="PrivateBankAccount" type="xs:string" />
+          <xs:element name="PrivateEmail" type="xs:string" />
+          <xs:element name="PrivateAddress" type="xs:string" />
+          <xs:element name="BusinessAddress" type="xs:string" />
+          <xs:element name="Valid_to" type="xs:string" />
+          <xs:element name="TypeOfJourney" type="xs:int" />
+          <xs:element name="BirthDay" type="xs:string" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Costcenter" type="xs:string" />
+          <xs:element name="Gender" type="xs:int" />
+          <xs:element name="Nationality" type="xs:string" />
+          <xs:element minOccurs="0" name="License" type="ns:License" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Clients" type="ns:Client" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="License">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="RFID" type="xs:string" />
+          <xs:element name="State" type="xs:int" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="DateOfIssue" type="xs:string" />
+          <xs:element minOccurs="0" name="Lic_Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpireDate" type="xs:string" />
+          <xs:element minOccurs="0" name="LicenseNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="LastCheck" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Client">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Enabled" type="xs:int" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Comment" type="xs:string" />
+          <xs:element name="ContactPerson" type="xs:string" />
+          <xs:element name="Address" type="xs:string" />
+          <xs:element name="ContactInfo" type="xs:string" />
+          <xs:element name="CountEmployees" type="xs:int" />
+          <xs:element name="Deposit" type="xs:int" />
+          <xs:element name="BankAccountInfo" type="xs:string" />
+          <xs:element name="BusinessLicenseID" type="xs:string" />
+          <xs:element name="OrgCodeCertificate" type="xs:string" />
+          <xs:element name="LegalRepresentativeID" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="Status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BillingOption">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:int" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCancelReservationFees_Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="Price" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceDetails" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Error">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:string" />
+          <xs:element name="ErrorMessage" type="xs:string" />
+          <xs:element name="ErrorJSON" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="States">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="State" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element name="Enabled" type="xs:integer" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Department" type="xs:string" />
+          <xs:element name="Phone" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="PNo" type="xs:string" />
+          <xs:element name="CreateDate" type="xs:string" />
+          <xs:element name="Company" type="xs:string" />
+          <xs:element name="PersonInCharge" type="xs:string" />
+          <xs:element name="PrivateMobileNumber" type="xs:string" />
+          <xs:element name="PrivateBankAccount" type="xs:string" />
+          <xs:element name="PrivateEmail" type="xs:string" />
+          <xs:element name="PrivateAddress" type="xs:string" />
+          <xs:element name="BusinessAddress" type="xs:string" />
+          <xs:element name="Valid_to" type="xs:string" />
+          <xs:element name="UserName" type="xs:string" />
+          <xs:element name="Lic" type="xs:int" />
+          <xs:element minOccurs="0" name="Lic_ExpireDate" type="xs:string" />
+          <xs:element minOccurs="0" name="Lic_Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="Lic_LicenseNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bookings">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Fields" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Data" type="ns:Booking" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BookingsDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Data1" type="ns:BookingDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Locations">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Locations" type="ns:Location" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Condition">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="KEMAS_WSIF_RETURNCODE" type="xs:int" />
+      <xs:complexType name="findReservation_Response">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="Creator" type="xs:string" />
+          <xs:element name="Driver" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="PickupBegin" type="xs:string" />
+          <xs:element name="PickupEnd" type="xs:string" />
+          <xs:element name="DateHuman" type="xs:string" />
+          <xs:element name="StartLocation" type="xs:string" />
+          <xs:element name="Car" type="xs:string" />
+          <xs:element name="KeyOut" type="xs:string" />
+          <xs:element name="KeyIn" type="xs:string" />
+          <xs:element name="State" type="xs:string" />
+          <xs:element name="TypeOfJourney" type="xs:integer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Conditions" type="ns:Condition" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Location">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BookingData">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Creator" type="xs:string" />
+          <xs:element name="Driver" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="StartLocation" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfJourney" type="xs:integer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Conditions" type="ns:Condition" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateReservation_Response">
+        <xs:sequence>
+          <xs:element name="success" type="xs:integer" />
+          <xs:element name="messages" type="ns:message" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Data">
+        <xs:sequence>
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="StartLocation" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Conditions" type="ns:Condition" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Booking">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="CarID" type="xs:string" />
+          <xs:element name="Car" type="xs:string" />
+          <xs:element name="DateHuman" type="xs:string" />
+          <xs:element name="State" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BookingDetail">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="CarID" type="xs:string" />
+          <xs:element name="Car" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="Creator" type="ns:Person" />
+          <xs:element name="Driver" type="ns:Person" />
+          <xs:element name="PickupBegin" type="xs:string" />
+          <xs:element name="PickupEnd" type="xs:string" />
+          <xs:element name="StartLocation" type="xs:string" />
+          <xs:element name="StartLocationName" type="xs:string" />
+          <xs:element name="KeyOut" type="xs:string" />
+          <xs:element name="KeyIn" type="xs:string" />
+          <xs:element name="State" type="xs:string" />
+          <xs:element name="UsePurpose" type="xs:string" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="QRCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="message">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QRC_Response">
+        <xs:sequence>
+          <xs:element name="Result" type="xs:integer" />
+          <xs:element name="ImageData" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BookingSample">
+        <xs:sequence>
+          <xs:element name="Driver" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element maxOccurs="unbounded" name="Conditions" type="ns:Condition" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkPrice_Response">
+        <xs:sequence>
+          <xs:element name="Status" type="xs:integer" />
+          <xs:element name="Response" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="out" type="xs:string" />
+      <xs:complexType name="Categories">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findReservations2_Request">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element name="States" type="ns:States" />
+          <xs:element name="Language" type="xs:string" />
+          <xs:element minOccurs="0" name="Driver" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemsPerPage" type="xs:int" />
+          <xs:element minOccurs="0" name="Page" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ReservationData">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="DateBegin" type="xs:string" />
+          <xs:element name="DateEnd" type="xs:string" />
+          <xs:element name="StartLocation" type="xs:string" />
+          <xs:element name="BillingOption" type="xs:int" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Driver" type="xs:string" />
+          <xs:element name="PaymentStatus" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkPrice2_Response">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns:getCancelReservationFees_Response" />
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="cancelReservation">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="cancelReservation_Return">
+    <wsdl:part name="return" element="ns:KEMAS_WSIF_RETURNCODE" />
+  </wsdl:message>
+  <wsdl:message name="findReservation">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findReservation_Return">
+    <wsdl:part name="findReservation_Response" type="ns:findReservation_Response" />
+  </wsdl:message>
+  <wsdl:message name="getLocations">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getLocations_Return">
+    <wsdl:part name="Locations" type="ns:Locations" />
+  </wsdl:message>
+  <wsdl:message name="updateReservation">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="BookingData" type="ns:BookingData" />
+    <wsdl:part name="Language" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="updateReservation_Return">
+    <wsdl:part name="updateReservation_Response" type="ns:updateReservation_Response" />
+  </wsdl:message>
+  <wsdl:message name="getCountAvailableCars">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="Data" type="ns:Data" />
+  </wsdl:message>
+  <wsdl:message name="getCountAvailableCars_Return">
+    <wsdl:part name="count" type="xs:integer" />
+  </wsdl:message>
+  <wsdl:message name="findMyReservations">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findMyReservations_Return">
+    <wsdl:part name="Bookings" type="ns:Bookings" />
+  </wsdl:message>
+  <wsdl:message name="getUsers">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getUsers_return">
+    <wsdl:part name="Userlist" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getQRCodeOfReserveration">
+    <wsdl:part name="BookingID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getQRCodeOfReserveration_return">
+    <wsdl:part name="QRC_Response" type="ns:QRC_Response" />
+  </wsdl:message>
+  <wsdl:message name="getPrice">
+    <wsdl:part name="BookingID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getPrice_Return">
+    <wsdl:part name="Price" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getPriceDetailed">
+    <wsdl:part name="BookingID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getPriceDetailed_Return">
+    <wsdl:part name="PriceDetailed" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findMyReservations2">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="States" type="ns:States" />
+    <wsdl:part name="Lang" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findReservation2_Return">
+    <wsdl:part name="Bookings" type="ns:BookingsDetail" />
+  </wsdl:message>
+  <wsdl:message name="checkPrice">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="BookingData" type="ns:BookingSample" />
+  </wsdl:message>
+  <wsdl:message name="checkPrice_Return">
+    <wsdl:part name="checkPrice_Reponse" type="ns:checkPrice_Response" />
+  </wsdl:message>
+  <wsdl:message name="getAvailableCategoriesRequest">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="Data2" type="ns:BookingData" />
+  </wsdl:message>
+  <wsdl:message name="getAvailableCategoriesResponse">
+    <wsdl:part name="getAvailableCategories_Response" type="ns:Categories" />
+  </wsdl:message>
+  <wsdl:message name="cancelReservation2_Request">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="cancelReservation2_Response">
+    <wsdl:part name="Error" type="ns:Error" />
+  </wsdl:message>
+  <wsdl:message name="getCancelReservationFees_Request">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getCancelReservationFees_Response">
+    <wsdl:part name="getCancelReservationFees_Response" type="ns:getCancelReservationFees_Response" />
+  </wsdl:message>
+  <wsdl:message name="findReservation2_Request">
+    <wsdl:part name="BookingID" type="xs:string" />
+    <wsdl:part name="SessionID" type="xs:string" />
+    <wsdl:part name="Language" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findReservation2_Response">
+    <wsdl:part name="findReservation_Response" type="ns:findReservation2_Response" />
+  </wsdl:message>
+  <wsdl:message name="findReservations2_Request">
+    <wsdl:part name="findReservations2_Request" type="ns:findReservations2_Request" />
+  </wsdl:message>
+  <wsdl:message name="findReservations2_Response">
+    <wsdl:part name="findReservations2_Response" type="ns:findReservations2_Response" />
+  </wsdl:message>
+  <wsdl:message name="getBookingOptions_Request">
+    <wsdl:part name="SessionID" type="xs:string" />
+    <wsdl:part name="Language" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getBookingsOptions_Response">
+    <wsdl:part name="getBookingOptions_Response" type="ns:getBookingOptions_Response" />
+  </wsdl:message>
+  <wsdl:message name="updateReservation2_Request">
+    <wsdl:part name="updateReservation2_Request" type="ns:updateReservation2_Request" />
+  </wsdl:message>
+  <wsdl:message name="updateReservation2_Response">
+    <wsdl:part name="updateReservation2_Response" type="ns:updateReservation2_Response" />
+  </wsdl:message>
+  <wsdl:message name="checkPrice2_Request">
+    <wsdl:part name="checkPrice2_Request" type="ns:checkPrice2_Request" />
+  </wsdl:message>
+  <wsdl:message name="checkPrice2_Response">
+    <wsdl:part name="checkPrice2_Response" type="ns:checkPrice2_Response" />
+  </wsdl:message>
+  <wsdl:portType name="WSKemasPortType">
+    <wsdl:operation name="cancelReservation">
+      <wsdl:input message="ns:cancelReservation" />
+      <wsdl:output message="ns:cancelReservation_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="findReservation">
+      <wsdl:input message="ns:findReservation" />
+      <wsdl:output message="ns:findReservation_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocations">
+      <wsdl:input message="ns:getLocations" />
+      <wsdl:output message="ns:getLocations_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation">
+      <wsdl:input message="ns:updateReservation" />
+      <wsdl:output message="ns:updateReservation_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getCountAvailableCars">
+      <wsdl:input message="ns:getCountAvailableCars" />
+      <wsdl:output message="ns:getCountAvailableCars_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="findMyReservations">
+      <wsdl:input message="ns:findMyReservations" />
+      <wsdl:output message="ns:findMyReservations_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getQRCodeOfReserveration">
+      <wsdl:input message="ns:getQRCodeOfReserveration" />
+      <wsdl:output message="ns:getQRCodeOfReserveration_return" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrice">
+      <wsdl:input message="ns:getPrice" />
+      <wsdl:output message="ns:getPrice_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getPriceDetailed">
+      <wsdl:input message="ns:getPriceDetailed" />
+      <wsdl:output message="ns:getPriceDetailed_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="findMyReservations2">
+      <wsdl:input message="ns:findMyReservations2" />
+      <wsdl:output message="ns:findReservation2_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPrice">
+      <wsdl:input message="ns:checkPrice" />
+      <wsdl:output message="ns:checkPrice_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableCategories">
+      <wsdl:input message="ns:getAvailableCategoriesRequest" />
+      <wsdl:output message="ns:getAvailableCategoriesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSKemasPortType2">
+    <wsdl:operation name="cancelReservation2">
+      <wsdl:input message="ns:cancelReservation2_Request" />
+      <wsdl:output message="ns:cancelReservation2_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="getCancelReservationFees">
+      <wsdl:input message="ns:getCancelReservationFees_Request" />
+      <wsdl:output message="ns:getCancelReservationFees_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="findReservation2">
+      <wsdl:input message="ns:findReservation2_Request" />
+      <wsdl:output message="ns:findReservation2_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="findReservations2">
+      <wsdl:input message="ns:findReservations2_Request" />
+      <wsdl:output message="ns:findReservations2_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="getBookingOptions">
+      <wsdl:input message="ns:getBookingOptions_Request" />
+      <wsdl:output message="ns:getBookingsOptions_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation2">
+      <wsdl:input message="ns:updateReservation2_Request" />
+      <wsdl:output message="ns:updateReservation2_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPrice2">
+      <wsdl:input message="ns:checkPrice2_Request" />
+      <wsdl:output message="ns:checkPrice2_Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKemasReservationBinding" type="ns:WSKemasPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="cancelReservation">
+      <soap:operation soapAction="cancelReservation" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findReservation">
+      <soap:operation soapAction="findReservation" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocations">
+      <soap:operation soapAction="getLocations" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation">
+      <soap:operation soapAction="updateReservation" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountAvailableCars">
+      <soap:operation soapAction="getCountAvailableCars" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findMyReservations">
+      <soap:operation soapAction="findMyReservations" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQRCodeOfReserveration">
+      <soap:operation soapAction="getQRCodeOfReserveration" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrice">
+      <soap:operation soapAction="getPrice" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPriceDetailed">
+      <soap:operation soapAction="getPriceDetailed" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findMyReservations2">
+      <soap:operation soapAction="findMyReservations2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPrice">
+      <soap:operation soapAction="checkPrice" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableCategories">
+      <soap:operation soapAction="getAvailableCategories" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSKemasReservation2Binding" type="ns:WSKemasPortType2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="cancelReservation2">
+      <soap:operation soapAction="cancelReservation2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCancelReservationFees">
+      <soap:operation soapAction="getCancelReservationFees" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findReservation2">
+      <soap:operation soapAction="findReservation2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findReservations2">
+      <soap:operation soapAction="findReservation2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookingOptions">
+      <soap:operation soapAction="getBookingOptions" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation2">
+      <soap:operation soapAction="updateReservation2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPrice2">
+      <soap:operation soapAction="checkPrice2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/reservation" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kemasService">
+    <wsdl:port name="KemasPort" binding="ns:WSKemasReservationBinding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carpoolnet/services/customer_soap/vwnms/?reservation" />
+    </wsdl:port>
+    <wsdl:port name="kemasPort2" binding="ns:WSKemasReservation2Binding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carsharing/services/customer_soap/vwnms/?reservation" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

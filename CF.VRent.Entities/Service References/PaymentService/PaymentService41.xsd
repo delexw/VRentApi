@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" />
+  <xs:complexType name="ArrayOfPaymentCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentCard" nillable="true" type="tns:PaymentCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentCard" nillable="true" type="tns:ArrayOfPaymentCard" />
+  <xs:complexType name="PaymentCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentCard" nillable="true" type="tns:PaymentCard" />
+  <xs:complexType name="PaymentExchangeMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q1:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeductionPrice" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPaymentID" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Operation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentID" type="xs:int" />
+          <xs:element minOccurs="0" name="PreAuthDateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreAuthID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreAuthPrice" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreAuthQueryID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreAuthTempOrderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RealPreAuthPrice" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReservedMsg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Retry" type="xs:int" />
+          <xs:element minOccurs="0" name="RetryCount" type="xs:int" />
+          <xs:element minOccurs="0" name="SmsCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" type="xs:int" />
+          <xs:element minOccurs="0" name="UniqueID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentExchangeMessage" nillable="true" type="tns:PaymentExchangeMessage" />
+  <xs:complexType name="ArrayOfRetryBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RetryBooking" nillable="true" type="tns:RetryBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRetryBooking" nillable="true" type="tns:ArrayOfRetryBooking" />
+  <xs:complexType name="RetryBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingId" type="xs:int" />
+      <xs:element minOccurs="0" name="DeductionPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewCard" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="OldCard" nillable="true" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" minOccurs="0" name="Operation" type="q2:PayOperationEnum" />
+      <xs:element minOccurs="0" name="OrderItemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentId" type="xs:int" />
+      <xs:element minOccurs="0" name="PreAuthPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreAuthQueryID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealPreAuthPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetryBooking" nillable="true" type="tns:RetryBooking" />
+  <xs:complexType name="ArrayOfPaymentExchangeMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentExchangeMessage" nillable="true" type="tns:PaymentExchangeMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentExchangeMessage" nillable="true" type="tns:ArrayOfPaymentExchangeMessage" />
+</xs:schema>

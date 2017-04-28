@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FapiaoPreferenceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8011/FapiaoPreferenceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8011/FapiaoPreferenceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8011/FapiaoPreferenceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFapiaoPreferenceService_GetAllFapiaoPreference_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFapiaoPreference" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_GetAllFapiaoPreference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFapiaoPreferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_GetFapiaoPreferenceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFapiaoPreferenceDetail" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_GetFapiaoPreferenceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFapiaoPreferenceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_CreateFapiaoPreference_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFapiaoPreference" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_CreateFapiaoPreference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFapiaoPreferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_DeleteFapiaoPreference_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFapiaoPreference" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_DeleteFapiaoPreference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFapiaoPreferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_UpdateFapiaoPreference_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFapiaoPreference" />
+  </wsdl:message>
+  <wsdl:message name="IFapiaoPreferenceService_UpdateFapiaoPreference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFapiaoPreferenceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFapiaoPreferenceService">
+    <wsdl:operation name="GetAllFapiaoPreference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/GetAllFapiaoPreference" message="tns:IFapiaoPreferenceService_GetAllFapiaoPreference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/GetAllFapiaoPreferenceResponse" message="tns:IFapiaoPreferenceService_GetAllFapiaoPreference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFapiaoPreferenceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/GetFapiaoPreferenceDetail" message="tns:IFapiaoPreferenceService_GetFapiaoPreferenceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/GetFapiaoPreferenceDetailResponse" message="tns:IFapiaoPreferenceService_GetFapiaoPreferenceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFapiaoPreference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/CreateFapiaoPreference" message="tns:IFapiaoPreferenceService_CreateFapiaoPreference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/CreateFapiaoPreferenceResponse" message="tns:IFapiaoPreferenceService_CreateFapiaoPreference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFapiaoPreference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/DeleteFapiaoPreference" message="tns:IFapiaoPreferenceService_DeleteFapiaoPreference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/DeleteFapiaoPreferenceResponse" message="tns:IFapiaoPreferenceService_DeleteFapiaoPreference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFapiaoPreference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/UpdateFapiaoPreference" message="tns:IFapiaoPreferenceService_UpdateFapiaoPreference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFapiaoPreferenceService/UpdateFapiaoPreferenceResponse" message="tns:IFapiaoPreferenceService_UpdateFapiaoPreference_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFapiaoPreferenceService" type="tns:IFapiaoPreferenceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllFapiaoPreference">
+      <soap:operation soapAction="http://tempuri.org/IFapiaoPreferenceService/GetAllFapiaoPreference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFapiaoPreferenceDetail">
+      <soap:operation soapAction="http://tempuri.org/IFapiaoPreferenceService/GetFapiaoPreferenceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFapiaoPreference">
+      <soap:operation soapAction="http://tempuri.org/IFapiaoPreferenceService/CreateFapiaoPreference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFapiaoPreference">
+      <soap:operation soapAction="http://tempuri.org/IFapiaoPreferenceService/DeleteFapiaoPreference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFapiaoPreference">
+      <soap:operation soapAction="http://tempuri.org/IFapiaoPreferenceService/UpdateFapiaoPreference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FapiaoPreferenceService">
+    <wsdl:port name="BasicHttpBinding_IFapiaoPreferenceService" binding="tns:BasicHttpBinding_IFapiaoPreferenceService">
+      <soap:address location="http://localhost:8011/FapiaoPreferenceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

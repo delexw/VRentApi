@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8464D555-67AD-4086-BDCB-5F60BE5FBB39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProxyTest</RootNamespace>
+    <AssemblyName>ProxyTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vrent637\Proxy\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vrent637\Proxy\dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vrent637\Proxy\dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vrent905\Proxy\npoi\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Proxy\dll\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Proxy\dll\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\Proxy\dll\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthencationUnitTestKemasAPI.cs" />
+    <Compile Include="CompanyUnitTest.cs" />
+    <Compile Include="DebitNoteUnitTest.cs" />
+    <Compile Include="DUBDetailUnitTest.cs" />
+    <Compile Include="IndirectFeeUnitTest.cs" />
+    <Compile Include="KemasUserAPITest.cs" />
+    <Compile Include="NewUserAPIUnitTest.cs" />
+    <Compile Include="PricingUnitTest.cs" />
+    <Compile Include="RequestFapiaoTestUnitTest.cs" />
+    <Compile Include="ReservationUnitTestKemasAPI.cs" />
+    <Compile Include="Self_RegistrationUnitTest.cs" />
+    <Compile Include="Test_CategoryService.cs" />
+    <Compile Include="Test_CommonService.cs" />
+    <Compile Include="DatReader.cs" />
+    <Compile Include="Test_FapiaoData.cs" />
+    <Compile Include="Test_LoginService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test_ReservationService.cs" />
+    <Compile Include="Test_FapiaoPreferenceService.cs" />
+    <Compile Include="Test_RetrievePricingInfo.cs" />
+    <Compile Include="DebitNoteExcelUnitTest.cs" />
+    <Compile Include="UserTransferUnitTest.cs" />
+    <Compile Include="UnitTestConfiguration.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Test_UserService.cs" />
+    <Compile Include="UserFapiaoPreference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\BookingPrice\GetPriceDetail.txt" />
+    <Content Include="TestData\BookingPrice\GetPriceDetail_NoCancelFee.txt" />
+    <Content Include="TestData\ChangePwdData_Corret.txt" />
+    <Content Include="TestData\ChangeUserInforUpdate.txt" />
+    <Content Include="TestData\ChangeUserInforOrg.txt" />
+    <Content Include="TestData\checkRequestFapiaoFromShawn.txt" />
+    <Content Include="TestData\Client\NewClient.txt" />
+    <Content Include="TestData\Reservation_Create\CreateReservationRequest.txt" />
+    <Content Include="TestData\FapiaoPreference\DeleteFapiaoPreferenceData.txt" />
+    <Content Include="TestData\RequestingFapiao\RequestFapiaoRequest.txt" />
+    <Content Include="TestData\FapiaoPreference\UpdateFapiaoPreferenceData.txt" />
+    <Content Include="TestData\LoginData_FapiaoPreference.txt" />
+    <Content Include="TestData\FapiaoPreference\CreateFapiaoPreferenceData.txt" />
+    <Content Include="TestData\LoginData_Empty.txt" />
+    <Content Include="TestData\LoginData_Seb.txt" />
+    <Content Include="TestData\LoginData_Wrong.txt" />
+    <Content Include="TestData\LoginData_Corret.txt" />
+    <Content Include="TestData\Reservation_Create\UpdateReservationRequest.txt" />
+    <Content Include="TestData\Users\SampleLicense.txt" />
+    <Content Include="TestData\Users\UpdateUser.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.BLL\CF.VRent.BLL.csproj">
+      <Project>{33664721-eb2d-4561-9fc8-fd0f35c61653}</Project>
+      <Name>CF.VRent.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41DBB86D-A3C2-444F-9FB7-BFC7DB49809F}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Contract\CF.VRent.Contract.csproj">
+      <Project>{abcf5631-8676-49c0-93a0-740fc25bc203}</Project>
+      <Name>CF.VRent.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Entities\CF.VRent.Entities.csproj">
+      <Project>{4C6F31B4-C072-4170-B577-4520CAC428A1}</Project>
+      <Name>CF.VRent.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UPSDK\CF.VRent.UPSDK.csproj">
+      <Project>{8135e279-0854-4dd6-b155-81ff9a98f332}</Project>
+      <Name>CF.VRent.UPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserCompany\CF.VRent.UserCompany.csproj">
+      <Project>{dc34403a-70ab-4131-9528-467378702a20}</Project>
+      <Name>CF.VRent.UserCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserRole\CF.VRent.UserRole.csproj">
+      <Project>{5d0d4314-c7e7-4c48-b571-3d5a25a9a3a9}</Project>
+      <Name>CF.VRent.UserRole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proxy\Proxy.csproj">
+      <Project>{f9e7be9f-b931-4ca2-a70b-40af871fafca}</Project>
+      <Name>Proxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(SolutionDir)Proxy\web.config $(TargetDir)$(TargetFileName).config</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

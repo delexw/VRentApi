@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Setting name="RemoteSharedFolder" value="\\172.21.216.21\Test2">
+  </Setting>
+  <Setting name="LocalMapDeviceName" value="X:"></Setting>
+  <Setting name="RemoteUserName" value="condali\al250545"></Setting>
+  <Setting name="RemoteUserPassword" value="2jSpIoYV"></Setting>
+  <Setting name="FileExtension" value=".CSV">
+  </Setting>
+  <Setting name="DateFormat" value="yyyyMMdd">
+  </Setting>
+  <Setting name="FieldDelimiter" value="|">
+  </Setting>
+  <Setting name="Tax" value="0.17"></Setting>
+  <Setting name="DUBRentalFeeHeaderDes" value="DUB Rental Fee">
+  </Setting>
+  <Setting name="DUBIndirectFeeHeaderDes" value="DUB Indirect Fee">
+  </Setting>
+  <Setting name="CCBRentalFeeHeaderDes" value="CCB Rental Fee">
+  </Setting>
+  <Setting name="CCBIndirectFeeHeaderDes" value="CCB Indirect Fee">
+  </Setting>
+</Settings>

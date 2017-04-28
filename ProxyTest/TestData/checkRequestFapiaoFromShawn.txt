@@ -1,0 +1,1 @@
+{"Booking":{"Creator":"1c9d9c82-d074-45a4-863e-e7eeb2384c64","Driver":"1c9d9c82-d074-45a4-863e-e7eeb2384c64","VehicleCategory":"Eco","StartLocation":"3178afae-4678-4707-bb54-5ae18997ffe2","TypeOfJourney":"3","BookOnBehalf":false,"DateBegin":"2015-05-22 19:30","DateEnd":"2015-05-22 19:45","DriverService":""}}

@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9E7BE9F-B931-4CA2-A70B-40AF871FAFCA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proxy</RootNamespace>
+    <AssemblyName>Proxy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="VWFSCN.IT.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\VWFSCN.IT.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\HtmlAgilityPack.dll" />
+    <Content Include="dll\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="dll\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="dll\Microsoft.Practices.Unity.Configuration.dll" />
+    <Content Include="dll\Microsoft.Practices.Unity.dll" />
+    <Content Include="dll\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+    <Content Include="dll\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="dll\Newtonsoft.Json.xml" />
+    <Content Include="dll\NPOI.dll" />
+    <Content Include="dll\NPOI.OOXML.dll" />
+    <Content Include="dll\NPOI.OOXML.XML" />
+    <Content Include="dll\NPOI.OpenXml4Net.dll" />
+    <Content Include="dll\NPOI.OpenXml4Net.XML" />
+    <Content Include="dll\NPOI.OpenXmlFormats.dll" />
+    <Content Include="dll\NPOI.XML" />
+    <Content Include="dll\VWFSCN.IT.Log.dll" />
+    <Content Include="EmailTemplate\ScheduleJob_DebitNote_Created.html" />
+    <Content Include="EmailTemplate\Portal_Client_CreatedVM.html" />
+    <Content Include="EmailTemplate\Portal_Client_Terminal.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserTransfer_Corporate2End.html" />
+    <Content Include="EmailTemplate\Preauthorization_IndirectFeeRemainder.html" />
+    <Content Include="EmailTemplate\App_UserMgmt_UserCreation.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_License_SC_Reject.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserReactivation.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserDeactivation.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserTransfer_End2Corporate.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserTransfer_VM_Reject.html" />
+    <Content Include="EmailTemplate\Preauthorization_IndirectFeeDeduction_Failed.html" />
+    <Content Include="EmailTemplate\Preauthorization_Preauth_Successful.html" />
+    <Content Include="EmailTemplate\Preauthorization_FeeDeduction_Successful.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_UserTransfer_VM_Approved.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_License_SC_Approved.html" />
+    <Content Include="EmailTemplate\Preauthorization_PreauthComplete_Failed.html" />
+    <Content Include="EmailTemplate\Preauthorization_PreauthCacellation_Failed.html" />
+    <Content Include="EmailTemplate\Preauthorization_PreauthCacellation_Successful.html" />
+    <Content Include="EmailTemplate\Preauthorization_IndirectFeeDeduction_Successful.html" />
+    <Content Include="EmailTemplate\Portal_UserMgmt_CorporateUserCreation.html" />
+    <Content Include="EmailTemplate\Preauthorization_FeeDeduction_Failed.html" />
+    <Content Include="EmailTemplate\images\bottom.png" />
+    <Content Include="EmailTemplate\images\car.png" />
+    <Content Include="EmailTemplate\Preauthorization_Preauth_Failed.html" />
+    <Content Include="EmailTemplate\images\keybox-key.png" />
+    <Content Include="EmailTemplate\images\logo.png" />
+    <Content Include="EmailTemplate\images\return-key.png" />
+    <Content Include="EmailTemplate\images\top.png" />
+    <Content Include="Global.asax" />
+    <Content Include="LogView\js\JSONFormatter.css" />
+    <Content Include="LogView\js\JSONFormatter.js" />
+    <Content Include="LogView\LogView.html" />
+    <Content Include="LogView\js\jquery.easyui.min.js" />
+    <Content Include="LogView\js\jquery.min.js" />
+    <Content Include="LogView\themes\bootstrap\accordion.css" />
+    <Content Include="LogView\themes\bootstrap\calendar.css" />
+    <Content Include="LogView\themes\bootstrap\combo.css" />
+    <Content Include="LogView\themes\bootstrap\combobox.css" />
+    <Content Include="LogView\themes\bootstrap\datagrid.css" />
+    <Content Include="LogView\themes\bootstrap\datalist.css" />
+    <Content Include="LogView\themes\bootstrap\datebox.css" />
+    <Content Include="LogView\themes\bootstrap\dialog.css" />
+    <Content Include="LogView\themes\bootstrap\easyui.css" />
+    <Content Include="LogView\themes\bootstrap\filebox.css" />
+    <Content Include="LogView\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="LogView\themes\bootstrap\images\blank.gif" />
+    <Content Include="LogView\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="LogView\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="LogView\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="LogView\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="LogView\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="LogView\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="LogView\themes\bootstrap\images\loading.gif" />
+    <Content Include="LogView\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="LogView\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="LogView\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="LogView\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="LogView\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="LogView\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="LogView\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="LogView\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="LogView\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="LogView\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="LogView\themes\bootstrap\layout.css" />
+    <Content Include="LogView\themes\bootstrap\linkbutton.css" />
+    <Content Include="LogView\themes\bootstrap\menu.css" />
+    <Content Include="LogView\themes\bootstrap\menubutton.css" />
+    <Content Include="LogView\themes\bootstrap\messager.css" />
+    <Content Include="LogView\themes\bootstrap\numberbox.css" />
+    <Content Include="LogView\themes\bootstrap\pagination.css" />
+    <Content Include="LogView\themes\bootstrap\panel.css" />
+    <Content Include="LogView\themes\bootstrap\progressbar.css" />
+    <Content Include="LogView\themes\bootstrap\propertygrid.css" />
+    <Content Include="LogView\themes\bootstrap\searchbox.css" />
+    <Content Include="LogView\themes\bootstrap\slider.css" />
+    <Content Include="LogView\themes\bootstrap\spinner.css" />
+    <Content Include="LogView\themes\bootstrap\splitbutton.css" />
+    <Content Include="LogView\themes\bootstrap\switchbutton.css" />
+    <Content Include="LogView\themes\bootstrap\tabs.css" />
+    <Content Include="LogView\themes\bootstrap\textbox.css" />
+    <Content Include="LogView\themes\bootstrap\tooltip.css" />
+    <Content Include="LogView\themes\bootstrap\tree.css" />
+    <Content Include="LogView\themes\bootstrap\validatebox.css" />
+    <Content Include="LogView\themes\bootstrap\window.css" />
+    <Content Include="LogView\themes\color.css" />
+    <Content Include="LogView\themes\icon.css" />
+    <Content Include="LogView\themes\icons\back.png" />
+    <Content Include="LogView\themes\icons\blank.gif" />
+    <Content Include="LogView\themes\icons\cancel.png" />
+    <Content Include="LogView\themes\icons\clear.png" />
+    <Content Include="LogView\themes\icons\cut.png" />
+    <Content Include="LogView\themes\icons\edit_add.png" />
+    <Content Include="LogView\themes\icons\edit_remove.png" />
+    <Content Include="LogView\themes\icons\filesave.png" />
+    <Content Include="LogView\themes\icons\filter.png" />
+    <Content Include="LogView\themes\icons\help.png" />
+    <Content Include="LogView\themes\icons\large_chart.png" />
+    <Content Include="LogView\themes\icons\large_clipart.png" />
+    <Content Include="LogView\themes\icons\large_picture.png" />
+    <Content Include="LogView\themes\icons\large_shapes.png" />
+    <Content Include="LogView\themes\icons\large_smartart.png" />
+    <Content Include="LogView\themes\icons\lock.png" />
+    <Content Include="LogView\themes\icons\man.png" />
+    <Content Include="LogView\themes\icons\mini_add.png" />
+    <Content Include="LogView\themes\icons\mini_edit.png" />
+    <Content Include="LogView\themes\icons\mini_refresh.png" />
+    <Content Include="LogView\themes\icons\more.png" />
+    <Content Include="LogView\themes\icons\no.png" />
+    <Content Include="LogView\themes\icons\ok.png" />
+    <Content Include="LogView\themes\icons\pencil.png" />
+    <Content Include="LogView\themes\icons\print.png" />
+    <Content Include="LogView\themes\icons\redo.png" />
+    <Content Include="LogView\themes\icons\reload.png" />
+    <Content Include="LogView\themes\icons\search.png" />
+    <Content Include="LogView\themes\icons\sum.png" />
+    <Content Include="LogView\themes\icons\tip.png" />
+    <Content Include="LogView\themes\icons\undo.png" />
+    <Content Include="LogView\themes\mobile.css" />
+    <Content Include="version.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CertTest\encrypt.cer" />
+    <Content Include="CertTest\PM_700000000000001_acp.pfx" />
+    <Content Include="CertTest\verify_sign_acp.cer" />
+    <Content Include="Config\ServiceModel\Services.config" />
+    <Content Include="Config\ServiceModel\Bindings.config" />
+    <Content Include="Config\ServiceModel\Behaviors.config" />
+    <Content Include="Config\ServiceModel\Client.config" />
+    <Content Include="Config\VwfscnLog\VwfscnLog.config" />
+    <Content Include="Config\ServiceModel\Diagnostics.config" />
+    <Content Include="Config\AppSettings\appSettings.config" />
+    <Content Include="Config\Unity\Unity.config" />
+    <Content Include="Config\Diagnostics\Diagnostics.config" />
+    <Content Include="Config\Cache\RuntimeCaching.config" />
+    <Content Include="Config\Cache\VRentCache.config" />
+    <Content Include="Config\ServiceModel\BindingsWithProxy.config" />
+    <Content Include="LogView\LogView.ashx" />
+    <Content Include="Config\VwfscnLog\VwfscnEmailLog.config" />
+    <Content Include="Config\VwfscnLog\VwfscnDebitNoteLog.config" />
+    <Content Include="CertTest\17.cer" />
+    <None Include="Properties\PublishProfiles\AL_Test.pubxml" />
+    <None Include="Properties\PublishProfiles\VRent-Proxy-Dev-AutoPublish.pubxml" />
+    <Content Include="Schema\Pricing_Response_XML_Definition.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Template\DebitNote_Template.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\VRentProxyPublish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataService\AccountingService.cs" />
+    <Compile Include="DataService\CategoryService.cs" />
+    <Compile Include="DataService\FapiaoPreferenceService.cs" />
+    <Compile Include="DataService\TermsConditionService.cs" />
+    <Compile Include="DataService\TransactionService.cs" />
+    <Compile Include="DataService\UnionPayService.cs" />
+    <Compile Include="DataService\UserMgmtService.cs" />
+    <Compile Include="LoginService\LoginService.cs" />
+    <Compile Include="DataService\ReservationService.cs" />
+    <Compile Include="DataService\UserService.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginService\PortalLoginService.cs" />
+    <Compile Include="LoginService\VrentAppService.cs" />
+    <Compile Include="LogView\LogView.ashx.cs">
+      <DependentUpon>LogView.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnionPayListenerService\IListenUnionService.cs" />
+    <Compile Include="UnionPayListenerService\ListenUnionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Template\temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.BLL\CF.VRent.BLL.csproj">
+      <Project>{33664721-EB2D-4561-9FC8-FD0F35C61653}</Project>
+      <Name>CF.VRent.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Cache\CF.VRent.Cache.csproj">
+      <Project>{ad33cb69-1a29-4d3d-8ee0-d9cf4d53b45d}</Project>
+      <Name>CF.VRent.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41DBB86D-A3C2-444F-9FB7-BFC7DB49809F}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Contract\CF.VRent.Contract.csproj">
+      <Project>{abcf5631-8676-49c0-93a0-740fc25bc203}</Project>
+      <Name>CF.VRent.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Email\CF.VRent.Email.csproj">
+      <Project>{357504f1-3a28-4148-9865-3a41204d2bb5}</Project>
+      <Name>CF.VRent.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Entities\CF.VRent.Entities.csproj">
+      <Project>{4C6F31B4-C072-4170-B577-4520CAC428A1}</Project>
+      <Name>CF.VRent.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UPSDK\CF.VRent.UPSDK.csproj">
+      <Project>{8135e279-0854-4dd6-b155-81ff9a98f332}</Project>
+      <Name>CF.VRent.UPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserCompany\CF.VRent.UserCompany.csproj">
+      <Project>{dc34403a-70ab-4131-9528-467378702a20}</Project>
+      <Name>CF.VRent.UserCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserRole\CF.VRent.UserRole.csproj">
+      <Project>{5d0d4314-c7e7-4c48-b571-3d5a25a9a3a9}</Project>
+      <Name>CF.VRent.UserRole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.WCFExtension\CF.VRent.WCFExtension.csproj">
+      <Project>{2CBA6992-917D-4159-ADDC-C7A18DBDB7C0}</Project>
+      <Name>CF.VRent.WCFExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VWProxy.Log\CF.VRent.Log.csproj">
+      <Project>{EFAE21A7-F88B-453F-9577-B5D95E668B21}</Project>
+      <Name>CF.VRent.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49508</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Proxy</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+  <xs:complexType name="DBEntityAggregationOfCountryDBConditionObject_Pz_SRG2BH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DBEntityAggregationOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Country" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+          <GenericParameter Name="DBConditionObject" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="Condition" nillable="true" type="q1:DBConditionObject" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="Entities" nillable="true" type="q2:ArrayOfCountry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DBEntityAggregationOfCountryDBConditionObject_Pz_SRG2BH" nillable="true" type="tns:DBEntityAggregationOfCountryDBConditionObject_Pz_SRG2BH" />
+  <xs:complexType name="DBEntityAggregationOfGeneralLedgerStatisticCCBDBConditionObject_Pz_SRG2BH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DBEntityAggregationOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GeneralLedgerStatisticCCB" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+          <GenericParameter Name="DBConditionObject" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="Condition" nillable="true" type="q3:DBConditionObject" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="Entities" nillable="true" type="q4:ArrayOfGeneralLedgerStatisticCCB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DBEntityAggregationOfGeneralLedgerStatisticCCBDBConditionObject_Pz_SRG2BH" nillable="true" type="tns:DBEntityAggregationOfGeneralLedgerStatisticCCBDBConditionObject_Pz_SRG2BH" />
+  <xs:complexType name="DBEntityAggregationOfGeneralLedgerStatisticDUBDBConditionObject_Pz_SRG2BH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DBEntityAggregationOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GeneralLedgerStatisticDUB" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+          <GenericParameter Name="DBConditionObject" Namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="Condition" nillable="true" type="q5:DBConditionObject" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="Entities" nillable="true" type="q6:ArrayOfGeneralLedgerStatisticDUB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DBEntityAggregationOfGeneralLedgerStatisticDUBDBConditionObject_Pz_SRG2BH" nillable="true" type="tns:DBEntityAggregationOfGeneralLedgerStatisticDUBDBConditionObject_Pz_SRG2BH" />
+</xs:schema>

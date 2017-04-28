@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n1="urn:kemas:rfc:functions" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="urn:kemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="urn:kemas" name="kemas" targetNamespace="urn:kemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:n0="urn:kemas:rfc:functions" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:kemas">
+      <xs:element name="User" type="xs:string" />
+      <xs:element name="Pass" type="xs:string" />
+      <xs:complexType name="WS_Auth_Response">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Result" type="xs:integer" />
+          <xs:element name="Enabled" type="xs:integer" />
+          <xs:element name="Blocked" type="xs:integer" />
+          <xs:element name="ChangePwd" type="xs:integer" />
+          <xs:element name="AllowChangePwd" type="xs:integer" />
+          <xs:element name="SessionID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Error">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:string" />
+          <xs:element name="ErrorMessage" type="xs:string" />
+          <xs:element name="ErrorJSON" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="authByLogin">
+    <wsdl:part name="User" element="ns:User" />
+    <wsdl:part name="Pass" element="ns:Pass" />
+  </wsdl:message>
+  <wsdl:message name="authByLogin_Return">
+    <wsdl:part name="ws_auth_response" type="ns:WS_Auth_Response" />
+  </wsdl:message>
+  <wsdl:message name="logout_Request">
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="logout_Response">
+    <wsdl:part name="Error" type="ns:Error" />
+  </wsdl:message>
+  <wsdl:portType name="WSKemasPortType">
+    <wsdl:operation name="authByLogin">
+      <wsdl:input message="ns:authByLogin" />
+      <wsdl:output message="ns:authByLogin_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input message="ns:logout_Request" />
+      <wsdl:output message="ns:logout_Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKemasAuthBinding" type="ns:WSKemasPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="authByLogin">
+      <soap:operation soapAction="authByLogin" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="logout" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kemasService">
+    <wsdl:port name="KemasPort" binding="ns:WSKemasAuthBinding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carpoolnet/services/customer_soap/vwnms/?auth" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

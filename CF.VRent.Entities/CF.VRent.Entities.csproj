@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C6F31B4-C072-4170-B577-4520CAC428A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CF.VRent.Entities</RootNamespace>
+    <AssemblyName>CF.VRent.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Proxy\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessArea.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CheckPriceInfo.cs" />
+    <Compile Include="CompanyProfileRequest.cs" />
+    <Compile Include="DataAccessProxyWrapper\AccountingServiceManager.cs" />
+    <Compile Include="DataAccessProxyWrapper\BigFileServerManager.cs" />
+    <Compile Include="DataAccessProxyWrapper\DataAccessProxyManager.cs" />
+    <Compile Include="DebitNotePaymentState.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="EntityFactory\EntityPager.cs" />
+    <Compile Include="EntityFactory\IEntityDBFactory.cs" />
+    <Compile Include="EntityFactory\IEntityPagerFactory.cs" />
+    <Compile Include="EntityFactory\PagerFactory.cs" />
+    <Compile Include="EntityFactory\PaymentFactory.cs" />
+    <Compile Include="EntityFactory\TermsConditionFactory.cs" />
+    <Compile Include="EntityFactory\UserCompanyFactory.cs" />
+    <Compile Include="EntityFactory\UserFactory.cs" />
+    <Compile Include="EntityFactory\UserLicenseFactory.cs" />
+    <Compile Include="EntityFactory\UserPermissionFactory.cs" />
+    <Compile Include="EntityFactory\UserStatusFactory.cs" />
+    <Compile Include="ForgetPwdRes.cs" />
+    <Compile Include="ForgotPasswordPara.cs" />
+    <Compile Include="GeneralLedgerLine.cs" />
+    <Compile Include="JourneyType.cs" />
+    <Compile Include="KemasWrapper\KemasAccessWrapper.cs" />
+    <Compile Include="KemasWrapper\KemasAuthencationAPI.cs" />
+    <Compile Include="KemasWrapper\KemasCompanyAPI.cs" />
+    <Compile Include="KemasWrapper\KemasConfigsAPI.cs" />
+    <Compile Include="KemasWrapper\KemasConfigsAPIProxy.cs" />
+    <Compile Include="KemasWrapper\KemasEntityFactory.cs" />
+    <Compile Include="KemasWrapper\KemasExtensionAPI.cs" />
+    <Compile Include="KemasWrapper\KemasOptionsAPI.cs" />
+    <Compile Include="KemasWrapper\KemasReservationAPI.cs" />
+    <Compile Include="KemasWrapper\KemasReservationAPIProxy.cs" />
+    <Compile Include="KemasWrapper\KemasResponseValidator.cs" />
+    <Compile Include="KemasWrapper\KemasUserAPI.cs" />
+    <Compile Include="KemasWrapper\KemasUserAPIProxy.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="PaymentStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyReservation.cs" />
+    <Compile Include="ProxyUser.cs" />
+    <Compile Include="ReponseRes.cs" />
+    <Compile Include="Reservation.cs" />
+    <Compile Include="Service References\AccountingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BigFileService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DataAccessProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FapiaoPreferenceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KEMASWSIF_AUTHRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KEMASWSIF_CATALOGRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KEMASWSIF_CONFIGRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KEMASWSIF_RESERVATIONRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KEMASWSIF_USERRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PaymentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TermsConditionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfig.cs" />
+    <Compile Include="TermsConditionExtension.cs" />
+    <Compile Include="UserCompanyExtenstion.cs" />
+    <Compile Include="UserExtension.cs" />
+    <Compile Include="UserExtensionHeader.cs" />
+    <Compile Include="UserInfoConverter.cs" />
+    <Compile Include="UserLicenseExtension.cs" />
+    <Compile Include="UserNewPassword.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\CF.VRent.Common.Entities.DBEntity.DBConditionObject.datasource" />
+    <None Include="Properties\DataSources\CF.VRent.Common.Entities.ReturnResult.datasource" />
+    <None Include="Properties\DataSources\CF.VRent.Common.PricingItemMonthlysummary.datasource" />
+    <None Include="Service References\AccountingService\AccountingService.wsdl" />
+    <None Include="Service References\AccountingService\AccountingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\AccountingService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.BookingCompact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.DebitNote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.DebitNoteDetailSearchConditions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.DebitNotePeriod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.DebitNotesSearchConditions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountingService\CF.VRent.Entities.AccountingService.DUBDetailSearchConditions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService.wsdl" />
+    <None Include="Service References\BigFileService\BigFileService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BigFileService\BigFileService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.BookingIndirectFee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.BookingIndirectFeePayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.Country.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.GeneralLedgerStatisticCCB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.GeneralLedgerStatisticDUB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.IndirectFeeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyBookingPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyBookingPrice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyFapiao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyReservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyReservationPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ProxyReservationsWithPaging.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ReturnResultAddIndirectFeeItems.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ReturnResultBulkSink.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ReturnResultExt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ReturnResultExtRetrieve.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.ReturnResultRetrieveOrderItems.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.UserTransferCUDResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\CF.VRent.Entities.DataAccessProxy.UserTransferRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService.wsdl" />
+    <None Include="Service References\DataAccessProxy\DataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataAccessProxy\DataService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FapiaoPreferenceProxy\CF.VRent.Entities.FapiaoPreferenceProxy.ProxyFapiaoPreference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FapiaoPreferenceProxy\FapiaoPreferenceService1.wsdl" />
+    <None Include="Service References\FapiaoPreferenceProxy\FapiaoPreferenceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FapiaoPreferenceProxy\FapiaoPreferenceService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FapiaoPreferenceProxy\FapiaoPreferenceService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KEMASWSIF_AUTHRef\CF.VRent.Entities.KEMASWSIF_AUTHRef.Error.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_AUTHRef\CF.VRent.Entities.KEMASWSIF_AUTHRef.WS_Auth_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_AUTHRef\kemas.wsdl" />
+    <None Include="Service References\KEMASWSIF_CATALOGRef\CF.VRent.Entities.KEMASWSIF_CATALOGRef.Elements.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_CATALOGRef\kemas.wsdl" />
+    <None Include="Service References\KEMASWSIF_CONFIGRef\CF.VRent.Entities.KEMASWSIF_CONFIGRef.getCitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\CF.VRent.Entities.KEMASWSIF_CONFIGRef.getClientsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\CF.VRent.Entities.KEMASWSIF_CONFIGRef.updateClientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\kemas.wsdl" />
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.BookingDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.Bookings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.checkPrice2_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.checkPrice_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.Error.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.findReservation2_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.findReservations2_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.findReservation_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.getBookingOptions_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.getCancelReservationFees_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.QRC_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.updateReservation2_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\CF.VRent.Entities.KEMASWSIF_RESERVATIONRef.updateReservation_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\kemas.wsdl" />
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.Driver.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.findUser2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.findUser_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.getRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.getUsers2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.Right.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.StdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.updateUser2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\CF.VRent.Entities.KEMASWSIF_USERRef.UserList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KEMASWSIF_USERRef\kemas.wsdl" />
+    <None Include="Service References\PaymentService\CF.VRent.Entities.PaymentService.PaymentCard.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PaymentService\CF.VRent.Entities.PaymentService.PaymentExchangeMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PaymentService\CF.VRent.Entities.PaymentService.ProxyReservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PaymentService\CF.VRent.Entities.PaymentService.RetryBooking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService.wsdl" />
+    <None Include="Service References\PaymentService\PaymentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\CF.VRent.Entities.TermsConditionService.TermsCondition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService.wsdl" />
+    <None Include="Service References\TermsConditionService\TermsConditionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TermsConditionService\TermsConditionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AccountingService\" />
+    <WCFMetadataStorage Include="Service References\BigFileService\" />
+    <WCFMetadataStorage Include="Service References\DataAccessProxy\" />
+    <WCFMetadataStorage Include="Service References\FapiaoPreferenceProxy\" />
+    <WCFMetadataStorage Include="Service References\KEMASWSIF_AUTHRef\" />
+    <WCFMetadataStorage Include="Service References\KEMASWSIF_CATALOGRef\" />
+    <WCFMetadataStorage Include="Service References\KEMASWSIF_CONFIGRef\" />
+    <WCFMetadataStorage Include="Service References\KEMASWSIF_RESERVATIONRef\" />
+    <WCFMetadataStorage Include="Service References\KEMASWSIF_USERRef\" />
+    <WCFMetadataStorage Include="Service References\PaymentService\" />
+    <WCFMetadataStorage Include="Service References\TermsConditionService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_AUTHRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_AUTHRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_AUTHRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CATALOGRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CATALOGRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CATALOGRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_CONFIGRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_RESERVATIONRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_USERRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_USERRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KEMASWSIF_USERRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FapiaoPreferenceProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FapiaoPreferenceProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FapiaoPreferenceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FapiaoPreferenceProxy\FapiaoPreferenceService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentService\PaymentService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentService\PaymentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\PaymentService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.Cache\CF.VRent.Cache.csproj">
+      <Project>{ad33cb69-1a29-4d3d-8ee0-d9cf4d53b45d}</Project>
+      <Name>CF.VRent.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41dbb86d-a3c2-444f-9fb7-bfc7db49809f}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Email\CF.VRent.Email.csproj">
+      <Project>{357504f1-3a28-4148-9865-3a41204d2bb5}</Project>
+      <Name>CF.VRent.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UPSDK\CF.VRent.UPSDK.csproj">
+      <Project>{8135e279-0854-4dd6-b155-81ff9a98f332}</Project>
+      <Name>CF.VRent.UPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserCompany\CF.VRent.UserCompany.csproj">
+      <Project>{dc34403a-70ab-4131-9528-467378702a20}</Project>
+      <Name>CF.VRent.UserCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserRole\CF.VRent.UserRole.csproj">
+      <Project>{5d0d4314-c7e7-4c48-b571-3d5a25a9a3a9}</Project>
+      <Name>CF.VRent.UserRole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VWProxy.Log\CF.VRent.Log.csproj">
+      <Project>{efae21a7-f88b-453f-9577-b5d95e668b21}</Project>
+      <Name>CF.VRent.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TermsConditionService\TermsConditionService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TermsConditionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TermsConditionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TermsConditionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataAccessProxy\DataService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataAccessProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataAccessProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataAccessProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountingService\AccountingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BigFileService\BigFileService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BigFileService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BigFileService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BigFileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

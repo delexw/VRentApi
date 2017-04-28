@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/FapiaoPreferenceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+  <xs:element name="GetAllFapiaoPreference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllFapiaoPreferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetAllFapiaoPreferenceResult" nillable="true" type="q1:ArrayOfProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFapiaoPreferenceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fpid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFapiaoPreferenceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetFapiaoPreferenceDetailResult" nillable="true" type="q2:ProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFapiaoPreference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="fp" nillable="true" type="q3:ProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFapiaoPreferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="CreateFapiaoPreferenceResult" nillable="true" type="q4:ProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFapiaoPreference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fpid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFapiaoPreferenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFapiaoPreference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="oldfp" nillable="true" type="q5:ProxyFapiaoPreference" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="newFP" nillable="true" type="q6:ProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFapiaoPreferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="UpdateFapiaoPreferenceResult" nillable="true" type="q7:ProxyFapiaoPreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

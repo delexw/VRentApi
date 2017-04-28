@@ -1,0 +1,41 @@
+﻿
+CREATE PROCEDURE [dbo].[Sp_PaymentLog_Create]
+@CreatedOn datetime, @TxnType nvarchar(5), @TxnSubType nvarchar(10), @BizType nvarchar(10), @ChannelType nvarchar(5), @UserID nvarchar(50), @Message nvarchar(MAX), @OrderId nvarchar(50), @TxnTime nvarchar(50), @CurrencyCode nvarchar(10), @OperationType int, @QueryId nvarchar(50), @TraceNo nvarchar(50), @TraceTime nvarchar(50), @UniqueID nvarchar(500), @RespCode nvarchar(10), @RespMsg nvarchar(512), @CreatedBy nvarchar(50)
+WITH EXEC AS CALLER
+AS
+INSERT INTO UnionPaymentLog (CreatedOn,
+                             UPApi_txnType,
+                             UPApi_txnSubType,
+                             UPApi_bizType,
+                             UPApi_channelType,
+                             [User_ID],
+                             Encrpty_Message,
+                             Order_ID,
+                             UPApi_txnTime,
+                             UPApi_currencyCode,
+                             Operation_Type,
+                             UPApi_queryId,
+                             UPApi_traceNo,
+                             UPApi_traceTime,
+                             UPApi_UniqueID,
+                             UpiApi_respCode,
+                             UpiApi_respMsg,
+                             CreatedBy)
+VALUES (@CreatedOn,
+        @TxnType,
+        @TxnSubType,
+        @BizType,
+        @ChannelType,
+        @UserID,
+        @Message,
+        @OrderId,
+        @TxnTime,
+        @CurrencyCode,
+        @OperationType,
+        @QueryId,
+        @TraceNo,
+        @TraceTime,
+        @UniqueID,
+        @RespCode,
+        @RespMsg,
+        @CreatedBy)

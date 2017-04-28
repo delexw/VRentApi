@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n1="urn:kemas:rfc:functions" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="urn:kemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="urn:kemas" name="kemas" targetNamespace="urn:kemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:n0="urn:kemas:rfc:functions" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:kemas">
+      <xs:complexType name="City">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigModel">
+        <xs:sequence>
+          <xs:element name="BookingMaxDuration" type="xs:integer" />
+          <xs:element name="BookingAheadTime" type="xs:integer" />
+          <xs:element name="BookingBufferTime" type="xs:integer" />
+          <xs:element name="BookingMaxLeadTime" type="xs:integer" />
+          <xs:element name="BookingMaxWaitTime" type="xs:integer" />
+          <xs:element name="LostItemEnabled" type="xs:integer" />
+          <xs:element name="LostItemTime" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Error">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:string" />
+          <xs:element name="ErrorMessage" type="xs:string" />
+          <xs:element name="ErrorJSON" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Client">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Enabled" type="xs:int" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Comment" type="xs:string" />
+          <xs:element name="ContactPerson" type="xs:string" />
+          <xs:element name="Address" type="xs:string" />
+          <xs:element name="ContactInfo" type="xs:string" />
+          <xs:element name="CountEmployees" type="xs:int" />
+          <xs:element name="Deposit" type="xs:int" />
+          <xs:element name="BankAccountInfo" type="xs:string" />
+          <xs:element name="BusinessLicenseID" type="xs:string" />
+          <xs:element name="OrgCodeCertificate" type="xs:string" />
+          <xs:element name="LegalRepresentativeID" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="Status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClientsResponse">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Clients" type="ns:Client" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCitiesResponse">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Cities" type="ns:City" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateClientRequest">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element name="Client" type="ns:Client" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateClientResponse">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="Client" type="ns:Client" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getSystemConfiguration" />
+  <wsdl:message name="getSystemConfiguration_Return">
+    <wsdl:part name="parameters" type="ns:ConfigModel" />
+  </wsdl:message>
+  <wsdl:message name="getClientsRequest">
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getClientsResponse">
+    <wsdl:part name="getClientsResponse" type="ns:getClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCitiesRequest">
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getCitiesResponse">
+    <wsdl:part name="getCitiesResponse" type="ns:getCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateClientRequest">
+    <wsdl:part name="updateClientRequest" type="ns:updateClientRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateClientResponse">
+    <wsdl:part name="updateClientResponse" type="ns:updateClientResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSKemasPortType">
+    <wsdl:operation name="getSystemConfiguration">
+      <wsdl:input message="ns:getSystemConfiguration" />
+      <wsdl:output message="ns:getSystemConfiguration_Return" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSKemasPortType2">
+    <wsdl:operation name="getClients">
+      <wsdl:input message="ns:getClientsRequest" />
+      <wsdl:output message="ns:getClientsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCities">
+      <wsdl:input message="ns:getCitiesRequest" />
+      <wsdl:output message="ns:getCitiesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <wsdl:input message="ns:updateClientRequest" />
+      <wsdl:output message="ns:updateClientResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKemasConfigBinding" type="ns:WSKemasPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getSystemConfiguration">
+      <soap:operation soapAction="getSystemConfiguration" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSKemasConfig2Binding" type="ns:WSKemasPortType2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getClients">
+      <soap:operation soapAction="getClients" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCities">
+      <soap:operation soapAction="getCities" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <soap:operation soapAction="updateClient" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/config2" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kemasService">
+    <wsdl:port name="KemasPort" binding="ns:WSKemasConfigBinding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carpoolnet/services/customer_soap/vwnms/?config" />
+    </wsdl:port>
+    <wsdl:port name="KemasConfigPort2" binding="ns:WSKemasConfig2Binding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carsharing/services/customer_soap/vwnms/?config" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

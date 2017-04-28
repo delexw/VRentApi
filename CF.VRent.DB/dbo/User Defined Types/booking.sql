@@ -1,0 +1,25 @@
+CREATE TYPE [dbo].[Booking] AS TABLE(
+	[ID] [int] NULL,
+	[BookingType] [tinyint] NOT NULL,
+	[KemasBookingID] [uniqueidentifier] NOT NULL,
+	[KemasBookingNumber] [nvarchar](20) NOT NULL,
+	[DateBegin] [datetime] NOT NULL,
+	[DateEnd] [datetime] NOT NULL,
+	[TotalAmount] [decimal](10, 3) NOT NULL,
+	[UserID] [uniqueidentifier] NOT NULL,
+	[UserFirstName] [nvarchar](50) NULL,
+	[UserLastName] [nvarchar](50) NULL,
+	[CorporateID] [nvarchar](50) NULL,
+	[CorporateName] [nvarchar](50) NULL,
+	[CreatorID] [uniqueidentifier] NULL,
+	[CreatorFirstName] [nvarchar](50) NULL,
+	[CreatorLastName] [nvarchar](50) NULL,
+	[StartLocationID] [uniqueidentifier] NULL,
+	[StartLocationName] [nvarchar](50) NULL,
+	[State] [nvarchar](50) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedBy] [uniqueidentifier] NOT NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ModifiedBy] [uniqueidentifier] NULL
+)
+GO

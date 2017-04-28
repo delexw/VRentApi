@@ -1,0 +1,5 @@
+{  
+	"ProxyBookingID":36,
+    "FaPiaoPreferenceID":"3178afae-4678-4707-bb54-5ae18996ffe1",
+    "FaPiaoRequestType":"1"
+}

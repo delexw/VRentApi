@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Setting name="Country" value="CN" order="1">
+  </Setting>
+  <Setting name="ClientInTargetSystem" value="126" order="2">
+  </Setting>
+  <Setting name="CompanyCode" value="4070" order="3">
+  </Setting>
+  <Setting name="Module" value="FI-" order="4">
+  </Setting>
+  <Setting name="ShortName" value="GLDOC" order="5">
+  </Setting>
+  <Setting name="SendingSystem" value="CLM" order="6">
+  </Setting>
+  <Setting name="ConstantValue" value="-I" order="7">
+  </Setting>
+  <Setting name="ReceivingsSystem" value=".FPK" order="8">
+  </Setting>
+</Settings>

@@ -1,0 +1,177 @@
+﻿<!--
+******************************************************************************
+general info regarding images:
+the images can be embedded by the mailer-software you use.
+another solution is to host them on a server.
+******************************************************************************
+-->
+<!--
+******************************************************************************
+the style block only works in modern browsers.
+mediaqueries apply under 800px. mostly to support mobile clients.
+******************************************************************************
+-->
+<html lang="en-US">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+    @media (max-width: 800px) {
+        table {
+            width: 100%;
+            border: none !important;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        span {
+            display: block;
+            padding-bottom: 20px;
+        }
+
+        .padding-10 {
+            padding-bottom: 10px;
+        }
+    }
+</style>
+
+<!--
+******************************************************************************
+outer grey area. mail is centered in here.
+table width 700 width is the grey area inside of the mail
+******************************************************************************
+-->
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td width="700">
+                <table width="700" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td valign="middle">
+                            <img src="{$logo}" align="left" />
+                        </td>
+                        <td align="right">
+                            <img src="{$top}" align="right" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td bgcolor="#96040D">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" bgcolor="#F9F9F9" height="20"></td>
+        </tr>
+        <tr>
+            <td colspan="3" valign="top" bgcolor="#F9F9F9">
+                <table width="700" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="margin: 0 auto; border: 1px solid #CCC;">
+                    <tr>
+                        <td valign="top" width="100%">
+
+                            <table border="0" cellpadding="0" cellspacing="0" width="640" style="margin:0 auto" align="center">
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <tr>
+                                    <td height="40" valign="top" align="right" style="font-size:13px;">
+                                        <font face="Open Sans,Arial,sans-serif">Please see the English version below </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:14px;">
+                                        <font face="Open Sans,Arial,sans-serif" color="#333333">
+                                            亲爱的[&lt;FirstName&gt; &lt;LastName&gt;]：<br><br>
+
+                                            您好！很高兴告诉您，我们已经成功从您的信用卡对租车费用预授权。您很快将会收到预订的确认邮件。<br><br>
+
+                                            如果您有任何疑问或意见，请联系我们的服务热线 400-067-0806 或发电子邮件至 service.vrent@vwfsag.com.<br><br>
+
+                                            希望速享租车伴您安全愉快出行！<br><br>
+
+                                            谨致问候！<br><br>
+
+                                            速享租车服务团队<br><br>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                            </table>
+
+
+                            <br>
+
+
+
+                        </td>
+                    </tr>
+                </table>
+
+                <table width="700" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="20" bgcolor="#F9F9F9"></td>
+                    </tr>
+                </table>
+
+                <table width="700" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="margin: 0 auto; border: 1px solid #CCC;" align="center">
+
+                    <tr>
+                        <td valign="top" width="100%">
+
+                            <table border="0" cellpadding="0" cellspacing="0" width="640" style="margin:0 auto" align="center">
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                                <tr>
+                                    <td height="40" valign="top" align="right" style="font-size:13px;">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:15px;">
+                                        <font face="Open Sans,Arial,sans-serif" color="#333333">
+                                            Dear [&lt;FirstName&gt; &lt;LastName&gt;],<br><br>
+
+                                            We are pleased to inform you that the rental fee of [&lt;Price&gt;RMB] has been successfully preauthorised on the credit card you provided. You will receive a confirmation email of your booking shortly.<br><br>
+
+                                            Should you have any questions or comments, please contact us through our Customer Service Hotline on 400-067-0806 or email service.vrent@vwfsag.com.<br><br>
+
+                                            We wish you a safe and pleasant journey with VRent.<br><br>
+
+                                            Best regards,<br><br>
+
+                                            Your VRent Service Team<br><br>
+
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                            </table>
+
+                            <br>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" height="20" bgcolor="#F9F9F9"></td>
+        </tr>
+        <tr>
+            <td colspan="3" valign="top" bgcolor="#96040D">
+                <img src="{$bottom}" align="left" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

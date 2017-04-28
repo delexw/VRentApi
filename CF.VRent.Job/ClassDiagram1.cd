@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CF.VRent.Job.Common.JobException" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Common\JobException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.Config.JobDebugSection" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAQIAAAAAAAAA=</HashCode>
+      <FileName>Debug\Config\JobDebugConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.Config.JobDebugGroupConfigure" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAQAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Debug\Config\JobDebugConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.Config.JobDebugConfigure" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAIAAAgAAAAQAAAAAAAAAAIAAgAAAAAA=</HashCode>
+      <FileName>Debug\Config\JobDebugConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.Config.JobDebugGroupConfigureCollection" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Debug\Config\JobDebugConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.Config.JobDebugConfigureCollection" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAAAAAAAACQAAAAAAAAABAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Debug\Config\JobDebugConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Debug.JobDebug" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAQACAAAIAAAAAAAAQAQAAAACAAAIACBAAAAAg=</HashCode>
+      <FileName>Debug\JobDebug.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CF.VRent.Job.Formatter.JobTimeFormatter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAACAAAAAAgQAAAAEAAASAAgAAAACASBAAAAAAAA=</HashCode>
+      <FileName>Formatter\JobTimeFormatter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CF.VRent.Job.Job.Config.JobContextSection" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Job\Config\JobContainerConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Job.Config.JobContainerConfigure" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAQAAAAAAIAAAIAAAAAAAAA=</HashCode>
+      <FileName>Job\Config\JobContainerConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Job.Config.JobContainerConfigureCollection" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Job\Config\JobContainerConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Job.JobPolling" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgEAAIAQADAAAAAAAAQAAAQAQAAABCAAIIgCBAAAAAo=</HashCode>
+      <FileName>Job\JobPolling.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CF.VRent.Job.JobContext" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAACAAAQAAAAAAAgAAAAABAAAAAA=</HashCode>
+      <FileName>JobContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.JobDebugContainer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACCMAABAAAAAAQAAACAAAIAAcAACYAAiAAA=</HashCode>
+      <FileName>JobDebugContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CF.VRent.Job.JobDictionary" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAABAAIAAAAAAAAAAQAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>JobDictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.JobManager" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAAAAAAAAAgIAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>JobManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.JobUnitContainer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCMAABAAAAAAAAgAKAAAIAAEAASQAAiAAA=</HashCode>
+      <FileName>JobUnitContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CF.VRent.Job.Units.Config.JobUnitSection" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAEIAAAAAAAAA=</HashCode>
+      <FileName>Units\Config\JobUnitConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Units.Config.JobUnitGroupConfigure" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAQAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Units\Config\JobUnitConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Units.Config.JobUnitConfigure" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAgAAAAAAIAAAgAAAAQAAAAAAAAAAIAAgAAAAAA=</HashCode>
+      <FileName>Units\Config\JobUnitConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Units.Config.JobUnitGroupConfigureCollection" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Config\JobUnitConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Units.Config.JobUnitConfigureCollection" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAAAAAAAACQAAAAAAAAABAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Config\JobUnitConfigure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CF.VRent.Job.Units.JobUnit" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAQACAIAIAAAAAAAAQAQAAAACAAAIACBAAAAAg=</HashCode>
+      <FileName>Units\JobUnit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="CF.VRent.Job.Interface.IJob" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAAAAAAAAAAAQAAAAAAAAAAAAAIAgCBAAAAAo=</HashCode>
+      <FileName>Interface\IJob.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobContainer" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAABAAAAAAAAAACAAAIAAAAACQAAiAAA=</HashCode>
+      <FileName>Interface\IJobContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobDebug" Collapsed="true">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAACBAAAAAg=</HashCode>
+      <FileName>Interface\IJobDebug.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobDebugContainer" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAA=</HashCode>
+      <FileName>Interface\IJobDebugContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobEntity" Collapsed="true">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAQAQAAAACAAAIAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobGlobal" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobGlobal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobPolling" Collapsed="true">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobPolling.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobSingle" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobSingle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobTimeFormatter" Collapsed="true">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAASAAgAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobTimeFormatter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobUnit" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAAAACBAAAAAg=</HashCode>
+      <FileName>Interface\IJobUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CF.VRent.Job.Interface.IJobUnitContainer" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IJobUnitContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

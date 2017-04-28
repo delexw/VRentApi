@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{357504F1-3A28-4148-9865-3A41204D2BB5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CF.VRent.Email</RootNamespace>
+    <AssemblyName>CF.VRent.Email</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\Proxy\dll\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmailAddressEntity.cs" />
+    <Compile Include="EmailAddressEntityCollection.cs" />
+    <Compile Include="EmailAddressGroup.cs" />
+    <Compile Include="EmailAddressValidation.cs" />
+    <Compile Include="EmailConfiguration.cs" />
+    <Compile Include="EmailConstants.cs" />
+    <Compile Include="EmailContext.cs" />
+    <Compile Include="EmailHostEntity.cs" />
+    <Compile Include="EmailManager.cs" />
+    <Compile Include="EmailSender\Clients\ClientCreatedSender.cs" />
+    <Compile Include="EmailSender\Clients\ClientTerminalSender.cs" />
+    <Compile Include="EmailSender\Clients\IClientCreatedSender.cs" />
+    <Compile Include="EmailSender\Clients\IClientTerminalSender.cs" />
+    <Compile Include="EmailAttachmentEntity.cs" />
+    <Compile Include="EmailSender\DebitNote\DebitNoteCreatedSender.cs" />
+    <Compile Include="EmailSender\DebitNote\IDebitNoteCreatedSender.cs" />
+    <Compile Include="EmailSender\EmailHelper.cs" />
+    <Compile Include="EmailSender\EmailSenderFactory.cs" />
+    <Compile Include="EmailSender\EmailSenderValidation.cs" />
+    <Compile Include="EmailSender\Entity\EmailParameterEntity.cs" />
+    <Compile Include="EmailSender\Entity\EmailProxyParameter.cs" />
+    <Compile Include="EmailSender\IEmailSender.cs" />
+    <Compile Include="EmailSender\IEmailSenderValidation.cs" />
+    <Compile Include="EmailSender\Payment\FeeDeductionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\FeeDeductionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IFeeDeductionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IFeeDeductionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IIndirectFeeDeductionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IIndirectFeeDeductionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IIndirectFeeRemainder.cs" />
+    <Compile Include="EmailSender\Payment\IndirectFeeDeductionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IndirectFeeDeductionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IndirectFeeRemainder.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthCancelFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthCancelSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthCompletionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthCompletionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\IPreauthSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthCancelFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthCancelSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthCompletionFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthCompletionSuccessSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthFailedSender.cs" />
+    <Compile Include="EmailSender\Payment\PreauthSuccessSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\IPortalUserCreatedSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\IUserMgmtSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\IUserRegistrationSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\IUserTransferSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\PortalUserCreatedSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\UserMgmtSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\UserRegistrationSender.cs" />
+    <Compile Include="EmailSender\UserMgmt\UserTransferSender.cs" />
+    <Compile Include="EmailTemplateEntity.cs" />
+    <Compile Include="EmailTemplateEntityCollection.cs" />
+    <Compile Include="EmailType.cs" />
+    <Compile Include="EmailTypeExtension.cs" />
+    <Compile Include="IEmailAddressValidation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41dbb86d-a3c2-444f-9fb7-bfc7db49809f}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VWProxy.Log\CF.VRent.Log.csproj">
+      <Project>{efae21a7-f88b-453f-9577-b5d95e668b21}</Project>
+      <Name>CF.VRent.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

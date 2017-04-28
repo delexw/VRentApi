@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Code>
+  <Direct_Debit_Instruction>
+    <Lease>404001050</Lease>
+    <Payable_Tax>205002025</Payable_Tax>
+    <Receivable_From_VWCustomer>111111111</Receivable_From_VWCustomer>
+    <Receivable_From_NonVwCustomer>222222222</Receivable_From_NonVwCustomer>
+  </Direct_Debit_Instruction>
+  
+  <Direct_Debit_Feedback>
+    <Lease></Lease>
+    <Doubtful_Lease></Doubtful_Lease>
+    <Receivable_From_VWCustomer>111111111</Receivable_From_VWCustomer>
+    <Receivable_From_NonVwCustomer>222222222</Receivable_From_NonVwCustomer>
+  </Direct_Debit_Feedback>
+</Code>

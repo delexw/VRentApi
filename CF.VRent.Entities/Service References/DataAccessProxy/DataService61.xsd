@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EmailParameterEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AndroidUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingCarCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingEndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingFeeTotal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingStartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyTerminalDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IOSUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResignDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VRentManagerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VRentUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vehicle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailParameterEntity" nillable="true" type="tns:EmailParameterEntity" />
+</xs:schema>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABCF5631-8676-49C0-93A0-740FC25BC203}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CF.VRent.Contract</RootNamespace>
+    <AssemblyName>CF.VRent.Contract</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAppRegistrationBLL.cs" />
+    <Compile Include="IBLL.cs" />
+    <Compile Include="IBookingFapiao.cs" />
+    <Compile Include="IBookingPrice.cs" />
+    <Compile Include="ICompany.cs" />
+    <Compile Include="IFapiaoPreference.cs" />
+    <Compile Include="ICategory.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="IGeneralLedgerBLL.cs" />
+    <Compile Include="IIndirectFeeOperation.cs" />
+    <Compile Include="IJourneyType.cs" />
+    <Compile Include="ILocation.cs" />
+    <Compile Include="IPayment.cs" />
+    <Compile Include="IOptionsBLL.cs" />
+    <Compile Include="IPortalLogin.cs" />
+    <Compile Include="IPortalLoginBLL.cs" />
+    <Compile Include="IReservation.cs" />
+    <Compile Include="IRight.cs" />
+    <Compile Include="ISystemConfiguration.cs" />
+    <Compile Include="ITermsCondition.cs" />
+    <Compile Include="ITransaction.cs" />
+    <Compile Include="IUserMgmt.cs" />
+    <Compile Include="IVrentAppService.cs" />
+    <Compile Include="IVrentService.cs" />
+    <Compile Include="IUserSetting.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.Cache\CF.VRent.Cache.csproj">
+      <Project>{ad33cb69-1a29-4d3d-8ee0-d9cf4d53b45d}</Project>
+      <Name>CF.VRent.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41dbb86d-a3c2-444f-9fb7-bfc7db49809f}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Email\CF.VRent.Email.csproj">
+      <Project>{357504f1-3a28-4148-9865-3a41204d2bb5}</Project>
+      <Name>CF.VRent.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Entities\CF.VRent.Entities.csproj">
+      <Project>{4C6F31B4-C072-4170-B577-4520CAC428A1}</Project>
+      <Name>CF.VRent.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UPSDK\CF.VRent.UPSDK.csproj">
+      <Project>{8135e279-0854-4dd6-b155-81ff9a98f332}</Project>
+      <Name>CF.VRent.UPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserCompany\CF.VRent.UserCompany.csproj">
+      <Project>{dc34403a-70ab-4131-9528-467378702a20}</Project>
+      <Name>CF.VRent.UserCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserRole\CF.VRent.UserRole.csproj">
+      <Project>{5d0d4314-c7e7-4c48-b571-3d5a25a9a3a9}</Project>
+      <Name>CF.VRent.UserRole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

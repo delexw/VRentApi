@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33664721-EB2D-4561-9FC8-FD0F35C61653}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CF.VRent.BLL</RootNamespace>
+    <AssemblyName>CF.VRent.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\Proxy\dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractBLL.cs" />
+    <Compile Include="AppRegistrationBLL.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\CatalogWithClient.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\CatalogWithClientCCB.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\GenerateLedger.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\GenerateLedgerCCBForFund.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\GenerateLedgerCCBForRefund.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\GenerateLedgerDUBForFund.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\GenerateLedgerDUBForRefund.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\ICatalogWithClient.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\ICompanyCodeSource.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\IGenerateLedger.cs" />
+    <Compile Include="BLLFactory\GeneralLedger\LocalCompanyCodeSource.cs" />
+    <Compile Include="BLLFactory\Payment\BookingStatusSync.cs" />
+    <Compile Include="BLLFactory\Payment\CreateOrder.cs" />
+    <Compile Include="BLLFactory\Payment\GetPriceDetails.cs" />
+    <Compile Include="BLLFactory\Payment\IBookingStatusSync.cs" />
+    <Compile Include="BLLFactory\Payment\ICreateOrder.cs" />
+    <Compile Include="BLLFactory\Payment\IGetPriceDetails.cs" />
+    <Compile Include="BLLFactory\Payment\IRetryStrategy.cs" />
+    <Compile Include="BLLFactory\Payment\RetryStrategy.cs" />
+    <Compile Include="BLLFactory\ServiceImpInstanceFactory.cs" />
+    <Compile Include="BLLFactory\Payment\IPaymentMessageStreamSerializer.cs" />
+    <Compile Include="BLLFactory\Payment\IUserBlocker.cs" />
+    <Compile Include="BLLFactory\Payment\PaymentMessageStreamSerializer.cs" />
+    <Compile Include="BLLFactory\Payment\UserBlocker.cs" />
+    <Compile Include="BLLFactory\UserMgmt\CreateCorporateUserStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\DisableCCBAccount.cs" />
+    <Compile Include="BLLFactory\UserMgmt\EndUserValidator.cs" />
+    <Compile Include="BLLFactory\UserMgmt\GetVRentManagerInfo.cs" />
+    <Compile Include="BLLFactory\UserMgmt\ICreateCorporateUserStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IDisableCCBAccount.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IEndUserValidator.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IGetVRentManagerInfo.cs" />
+    <Compile Include="BLLFactory\UserMgmt\ISendUserTransferEmail.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUpdateCorporateUserStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUserMgmtCacheChannel.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUserMgmtPermissionStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUserStatusFlowStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUserTransferDataAccessChannel.cs" />
+    <Compile Include="BLLFactory\UserMgmt\ITypeofJourneyStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\IUserTransferStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\SendUserTransferEmail.cs" />
+    <Compile Include="BLLFactory\UserMgmt\TypeofJourneyStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UpdateCorporateUserStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UserMgmtNavigation.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UserMgmtPermissionStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UserStatusFlowStrategy.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UserTransferOperator.cs" />
+    <Compile Include="BLLFactory\UserMgmt\UserTransferStrategy.cs" />
+    <Compile Include="BookingFapiaoImpl.cs" />
+    <Compile Include="BookingPriceImpl.cs" />
+    <Compile Include="CompanyBLL.cs" />
+    <Compile Include="DebitNoteBLL.cs" />
+    <Compile Include="DebitNoteExcelUtility.cs" />
+    <Compile Include="DUBBLL.cs" />
+    <Compile Include="GeneralLedgerBLL.cs" />
+    <Compile Include="IndirectFeeBLL.cs" />
+    <Compile Include="OptionsBLL.cs" />
+    <Compile Include="FapiaoPreferenceBLL.cs" />
+    <Compile Include="DriverBLL.cs" />
+    <Compile Include="PaymentBLL.cs" />
+    <Compile Include="PortalUserLoginBLL.cs" />
+    <Compile Include="RequestFapiaoBLL.cs" />
+    <Compile Include="ReservationAOP\AppRegistrationInterceptionBehavior.cs" />
+    <Compile Include="ReservationAOP\AuthenticationValidator\TermsConditionAuthenticationValidator.cs" />
+    <Compile Include="ReservationAOP\AuthenticationValidator\TransactionAuthenticationValidator.cs" />
+    <Compile Include="ReservationAOP\AuthenticationValidator\UserMgmtAuthenticationValidator.cs" />
+    <Compile Include="ReservationAOP\Authentication\PortalTransactionAuthenticationBehavior.cs" />
+    <Compile Include="ReservationAOP\Cache\ClientCacheBehavior.cs" />
+    <Compile Include="ReservationAOP\Cache\UserMgmtCacheBehavior.cs" />
+    <Compile Include="ReservationAOP\CertificationValidator\LoginCertificationValidator.cs" />
+    <Compile Include="ReservationAOP\CertificationValidator\TermsConditionValidator.cs" />
+    <Compile Include="ReservationAOP\CertificationValidator\TransactionValidator.cs" />
+    <Compile Include="ReservationAOP\CertificationValidator\UserMgmtCertificationValidator.cs" />
+    <Compile Include="ReservationAOP\ClientInterceptionBehavior.cs" />
+    <Compile Include="ReservationAOP\IndirectFeeOperationInterceptionBehavior.cs" />
+    <Compile Include="ReservationAOP\AuthenticationValidator\IPortalAuthenticationValidator.cs" />
+    <Compile Include="ReservationAOP\IPortalCertificationValidator.cs" />
+    <Compile Include="ReservationAOP\Authentication\PortalUserMgmtAuthenticationBehavior.cs" />
+    <Compile Include="ReservationAOP\PortalCertification.cs" />
+    <Compile Include="ReservationAOP\Authentication\PortalLoginAuthenticationBehavior.cs" />
+    <Compile Include="ReservationAOP\Authentication\PortalTermsConditionAuthenticationBehavior.cs" />
+    <Compile Include="ReservationAOP\ReservationInterceptionBehavior.cs" />
+    <Compile Include="ReservationAOP\TransactionInterceptionBehavior.cs" />
+    <Compile Include="ReservationAOP\UserMgmtInterceptionBehavior.cs" />
+    <Compile Include="ReservationBLL.cs" />
+    <Compile Include="ReservationConstantRepo.cs" />
+    <Compile Include="RightBLL.cs" />
+    <Compile Include="SystemConfigurationBLL.cs" />
+    <Compile Include="TermsConditionBLL.cs" />
+    <Compile Include="TransactionBLL.cs" />
+    <Compile Include="UserBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManagementBLL.cs" />
+    <Compile Include="UserSettingBLL.cs" />
+    <Compile Include="UserTransferBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF.VRent.Cache\CF.VRent.Cache.csproj">
+      <Project>{ad33cb69-1a29-4d3d-8ee0-d9cf4d53b45d}</Project>
+      <Name>CF.VRent.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Common\CF.VRent.Common.csproj">
+      <Project>{41DBB86D-A3C2-444F-9FB7-BFC7DB49809F}</Project>
+      <Name>CF.VRent.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Contract\CF.VRent.Contract.csproj">
+      <Project>{abcf5631-8676-49c0-93a0-740fc25bc203}</Project>
+      <Name>CF.VRent.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Email\CF.VRent.Email.csproj">
+      <Project>{357504f1-3a28-4148-9865-3a41204d2bb5}</Project>
+      <Name>CF.VRent.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.Entities\CF.VRent.Entities.csproj">
+      <Project>{4C6F31B4-C072-4170-B577-4520CAC428A1}</Project>
+      <Name>CF.VRent.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.SAPSDK\CF.VRent.SAPSDK.csproj">
+      <Project>{4b39b8c4-125a-4781-b344-c463493cefaa}</Project>
+      <Name>CF.VRent.SAPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UPSDK\CF.VRent.UPSDK.csproj">
+      <Project>{8135e279-0854-4dd6-b155-81ff9a98f332}</Project>
+      <Name>CF.VRent.UPSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserCompany\CF.VRent.UserCompany.csproj">
+      <Project>{dc34403a-70ab-4131-9528-467378702a20}</Project>
+      <Name>CF.VRent.UserCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserRole\CF.VRent.UserRole.csproj">
+      <Project>{5d0d4314-c7e7-4c48-b571-3d5a25a9a3a9}</Project>
+      <Name>CF.VRent.UserRole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VRent.UserStatus\CF.VRent.UserStatus.csproj">
+      <Project>{575a89e7-c47e-4870-85e2-b3b24a171257}</Project>
+      <Name>CF.VRent.UserStatus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CF.VWProxy.Log\CF.VRent.Log.csproj">
+      <Project>{EFAE21A7-F88B-453F-9577-B5D95E668B21}</Project>
+      <Name>CF.VRent.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

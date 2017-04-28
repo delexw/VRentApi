@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n1="urn:kemas:rfc:functions" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="urn:kemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="urn:kemas" name="kemas" targetNamespace="urn:kemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:n0="urn:kemas:rfc:functions" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:kemas">
+      <xs:complexType name="Element">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Elements">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Elements" type="ns:Element" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="authByLogin" />
+  <wsdl:message name="authByLogin_Return" />
+  <wsdl:message name="getCategory" />
+  <wsdl:message name="getCategory_Return">
+    <wsdl:part name="Categories" type="ns:Elements" />
+  </wsdl:message>
+  <wsdl:message name="getTypeOfJourney">
+    <wsdl:part name="Language" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getTypeOfJourney_Return">
+    <wsdl:part name="Types" type="ns:Elements" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeOfjourney">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="Lang" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeOfJourney_Return">
+    <wsdl:part name="Types" type="ns:Elements" />
+  </wsdl:message>
+  <wsdl:portType name="WSKemasPortType">
+    <wsdl:operation name="getCategory">
+      <wsdl:input message="ns:getCategory" />
+      <wsdl:output message="ns:getCategory_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getTypeOfJourney">
+      <wsdl:input message="ns:getTypeOfJourney" />
+      <wsdl:output message="ns:getTypeOfJourney_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeOfJourney">
+      <wsdl:input message="ns:getUserTypeOfjourney" />
+      <wsdl:output message="ns:getUserTypeOfJourney_Return" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKemasCatalogBinding" type="ns:WSKemasPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getCategory">
+      <soap:operation soapAction="getCategory" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTypeOfJourney">
+      <soap:operation soapAction="getTypeOfJourney" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeOfJourney">
+      <soap:operation soapAction="getUserTypeOfJourney" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="urn:kemas" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kemasService">
+    <wsdl:port name="KemasPort" binding="ns:WSKemasCatalogBinding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carpoolnet/services/customer_soap/vwnms/?catalog" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[Sp_VrentCountry_Get]
+WITH EXEC AS CALLER
+AS
+SELECT *
+  FROM VrentCountry
+ORDER BY EN_NAME ASC

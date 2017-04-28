@@ -1,0 +1,77 @@
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Hernan (MCON Germany GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Price">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Rental">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType mixed="true">
+									<xs:sequence>
+										<xs:element name="period" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="from" type="xs:string"/>
+														<xs:attribute name="to" type="xs:string"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="type" type="xs:string" use="optional"/>
+									<xs:attribute name="total" type="xs:double"/>
+									<xs:attribute name="from" type="xs:string" use="optional"/>
+									<xs:attribute name="to" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="total" type="xs:double"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="InsuranceFee">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="total" type="xs:double"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fuel">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="kilometer" type="xs:byte"/>
+								<xs:attribute name="total" type="xs:double"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fine">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="type" type="xs:string"/>
+											<xs:attribute name="description" type="xs:string"/>
+											<xs:attribute name="total" type="xs:double"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="total" type="xs:double"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="total" type="xs:double"/>
+			<xs:attribute name="id" type="xs:string"/>
+			<xs:attribute name="timestamp" type="xs:string"/>
+			<xs:attribute name="pre-auth" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

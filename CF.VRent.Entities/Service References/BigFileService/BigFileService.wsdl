@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BigFileService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd1" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Email" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" />
+      <xsd:import schemaLocation="http://localhost:8011/BigFileService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EmailProxyParameter">
+    <wsdl:part name="parameters" element="tns:EmailProxyParameter" />
+  </wsdl:message>
+  <wsdl:message name="EmailProxyParameter_Headers">
+    <wsdl:part name="Attachment" element="tns:Attachment" />
+    <wsdl:part name="ContentParameter" element="tns:ContentParameter" />
+    <wsdl:part name="EmailAddresses" element="tns:EmailAddresses" />
+    <wsdl:part name="EmailType" element="tns:EmailType" />
+    <wsdl:part name="GroupType" element="tns:GroupType" />
+  </wsdl:message>
+  <wsdl:message name="IBigFileService_SendEmailWithAttachments_OutputMessage" />
+  <wsdl:message name="IBigFileService_SendEmailWithAttachments_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q1:ReturnResult" />
+  </wsdl:message>
+  <wsdl:portType name="IBigFileService">
+    <wsdl:operation name="SendEmailWithAttachments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBigFileService/SendEmailWithAttachments" name="EmailProxyParameter" message="tns:EmailProxyParameter" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBigFileService/SendEmailWithAttachmentsResponse" message="tns:IBigFileService_SendEmailWithAttachments_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBigFileService/SendEmailWithAttachmentsReturnResultFault" name="ReturnResultFault" message="tns:IBigFileService_SendEmailWithAttachments_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBigFileService" type="tns:IBigFileService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendEmailWithAttachments">
+      <soap:operation soapAction="http://tempuri.org/IBigFileService/SendEmailWithAttachments" style="document" />
+      <wsdl:input name="EmailProxyParameter">
+        <soap:header message="tns:EmailProxyParameter_Headers" part="Attachment" use="literal" />
+        <soap:header message="tns:EmailProxyParameter_Headers" part="ContentParameter" use="literal" />
+        <soap:header message="tns:EmailProxyParameter_Headers" part="EmailAddresses" use="literal" />
+        <soap:header message="tns:EmailProxyParameter_Headers" part="EmailType" use="literal" />
+        <soap:header message="tns:EmailProxyParameter_Headers" part="GroupType" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BigFileService">
+    <wsdl:port name="BasicHttpBinding_IBigFileService" binding="tns:BasicHttpBinding_IBigFileService">
+      <soap:address location="http://localhost:8011/BigFileService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

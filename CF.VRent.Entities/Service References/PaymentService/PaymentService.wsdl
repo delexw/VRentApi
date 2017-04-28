@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PaymentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+      <xsd:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPaymentService_LogPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogPayment" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_LogPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_LogPayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q1:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUPBindingCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUPBindingCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCard_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q2:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetUserCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetUserCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetUserCreditCard_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q3:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeleteUPBindingCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUPBindingCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeleteUPBindingCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUPBindingCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeleteUPBindingCard_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q4:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetCardToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardToken" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetCardToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetCardToken_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q5:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentMessageExchange_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentMessageExchange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentMessageExchange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentMessageExchangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentMessageExchange_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q6:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentMessageState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentMessageState" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentMessageState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentMessageStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentMessageState_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q7:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchange_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchange_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q8:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeRetry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchangeRetry" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeRetry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchangeRetryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeRetry_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q9:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentMessageExchangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdatePaymentMessageExchangeStatus_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q10:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentExchangeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentExchangeInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentExchangeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentExchangeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentExchangeInfo_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q11:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetAllRetryBookings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRetryBookings" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetAllRetryBookings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRetryBookingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetAllRetryBookings_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q12:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateCreditCardState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditCardState" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateCreditCardState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditCardStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateCreditCardState_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q13:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateBookingStatusAfterPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingStatusAfterPayment" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateBookingStatusAfterPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingStatusAfterPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_UpdateBookingStatusAfterPayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q14:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentStatusByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentStatusByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentStatusByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentStatusByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetPaymentStatusByBookingId_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q15:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCardViaUP_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUPBindingCardViaUP" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCardViaUP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUPBindingCardViaUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddUPBindingCardViaUP_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q16:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CheckPaymentStatusViaUP_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPaymentStatusViaUP" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CheckPaymentStatusViaUP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPaymentStatusViaUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CheckPaymentStatusViaUP_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q17:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelCardBindingViaUP_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCardBindingViaUP" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelCardBindingViaUP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCardBindingViaUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelCardBindingViaUP_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q18:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendBindingSMSCodeViaUP_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendBindingSMSCodeViaUP" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendBindingSMSCodeViaUP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendBindingSMSCodeViaUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendBindingSMSCodeViaUP_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q19:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendPreauthorizationSMSCodeViaUP_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPreauthorizationSMSCodeViaUP" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendPreauthorizationSMSCodeViaUP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPreauthorizationSMSCodeViaUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_SendPreauthorizationSMSCodeViaUP_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q20:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelAndPreauthOnce_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAndPreauthOnce" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelAndPreauthOnce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAndPreauthOnceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelAndPreauthOnce_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q21:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_PreauthOnce_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreauthOnce" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_PreauthOnce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreauthOnceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_PreauthOnce_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q22:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelPreauthOnce_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelPreauthOnce" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelPreauthOnce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelPreauthOnceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_CancelPreauthOnce_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q23:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeductionOnce_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeductionOnce" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeductionOnce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeductionOnceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_DeductionOnce_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q24:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_FinishAndDeduction_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinishAndDeduction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_FinishAndDeduction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishAndDeductionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_FinishAndDeduction_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q25:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetFailedTransactionByBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFailedTransactionByBooking" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetFailedTransactionByBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFailedTransactionByBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_GetFailedTransactionByBooking_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q26:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentExchangeMessageHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentExchangeMessageHistory" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentExchangeMessageHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentExchangeMessageHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentService_AddPaymentExchangeMessageHistory_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q27:ReturnResult" />
+  </wsdl:message>
+  <wsdl:portType name="IPaymentService">
+    <wsdl:operation name="LogPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/LogPayment" message="tns:IPaymentService_LogPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/LogPaymentResponse" message="tns:IPaymentService_LogPayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/LogPaymentReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_LogPayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUPBindingCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCard" message="tns:IPaymentService_AddUPBindingCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCardResponse" message="tns:IPaymentService_AddUPBindingCard_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCardReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_AddUPBindingCard_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetUserCreditCard" message="tns:IPaymentService_GetUserCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetUserCreditCardResponse" message="tns:IPaymentService_GetUserCreditCard_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetUserCreditCardReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetUserCreditCard_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUPBindingCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/DeleteUPBindingCard" message="tns:IPaymentService_DeleteUPBindingCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/DeleteUPBindingCardResponse" message="tns:IPaymentService_DeleteUPBindingCard_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/DeleteUPBindingCardReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_DeleteUPBindingCard_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetCardToken" message="tns:IPaymentService_GetCardToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetCardTokenResponse" message="tns:IPaymentService_GetCardToken_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetCardTokenReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetCardToken_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPaymentMessageExchange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentMessageExchange" message="tns:IPaymentService_AddPaymentMessageExchange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentMessageExchangeResponse" message="tns:IPaymentService_AddPaymentMessageExchange_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentMessageExchangeReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_AddPaymentMessageExchange_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentMessageState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentMessageState" message="tns:IPaymentService_GetPaymentMessageState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentMessageStateResponse" message="tns:IPaymentService_GetPaymentMessageState_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentMessageStateReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetPaymentMessageState_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchange" message="tns:IPaymentService_UpdatePaymentMessageExchange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeResponse" message="tns:IPaymentService_UpdatePaymentMessageExchange_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_UpdatePaymentMessageExchange_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchangeRetry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeRetry" message="tns:IPaymentService_UpdatePaymentMessageExchangeRetry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeRetryResponse" message="tns:IPaymentService_UpdatePaymentMessageExchangeRetry_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeRetryReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_UpdatePaymentMessageExchangeRetry_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchangeStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeStatus" message="tns:IPaymentService_UpdatePaymentMessageExchangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeStatusResponse" message="tns:IPaymentService_UpdatePaymentMessageExchangeStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeStatusReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_UpdatePaymentMessageExchangeStatus_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentExchangeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentExchangeInfo" message="tns:IPaymentService_GetPaymentExchangeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentExchangeInfoResponse" message="tns:IPaymentService_GetPaymentExchangeInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentExchangeInfoReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetPaymentExchangeInfo_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRetryBookings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetAllRetryBookings" message="tns:IPaymentService_GetAllRetryBookings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetAllRetryBookingsResponse" message="tns:IPaymentService_GetAllRetryBookings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetAllRetryBookingsReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetAllRetryBookings_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditCardState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdateCreditCardState" message="tns:IPaymentService_UpdateCreditCardState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdateCreditCardStateResponse" message="tns:IPaymentService_UpdateCreditCardState_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/UpdateCreditCardStateReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_UpdateCreditCardState_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingStatusAfterPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdateBookingStatusAfterPayment" message="tns:IPaymentService_UpdateBookingStatusAfterPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdateBookingStatusAfterPaymentResponse" message="tns:IPaymentService_UpdateBookingStatusAfterPayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/UpdateBookingStatusAfterPaymentReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_UpdateBookingStatusAfterPayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentStatusByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentStatusByBookingId" message="tns:IPaymentService_GetPaymentStatusByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentStatusByBookingIdResponse" message="tns:IPaymentService_GetPaymentStatusByBookingId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentStatusByBookingIdReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetPaymentStatusByBookingId_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUPBindingCardViaUP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCardViaUP" message="tns:IPaymentService_AddUPBindingCardViaUP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCardViaUPResponse" message="tns:IPaymentService_AddUPBindingCardViaUP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/AddUPBindingCardViaUPReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_AddUPBindingCardViaUP_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPaymentStatusViaUP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/CheckPaymentStatusViaUP" message="tns:IPaymentService_CheckPaymentStatusViaUP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/CheckPaymentStatusViaUPResponse" message="tns:IPaymentService_CheckPaymentStatusViaUP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/CheckPaymentStatusViaUPReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_CheckPaymentStatusViaUP_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelCardBindingViaUP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/CancelCardBindingViaUP" message="tns:IPaymentService_CancelCardBindingViaUP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/CancelCardBindingViaUPResponse" message="tns:IPaymentService_CancelCardBindingViaUP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/CancelCardBindingViaUPReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_CancelCardBindingViaUP_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBindingSMSCodeViaUP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/SendBindingSMSCodeViaUP" message="tns:IPaymentService_SendBindingSMSCodeViaUP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/SendBindingSMSCodeViaUPResponse" message="tns:IPaymentService_SendBindingSMSCodeViaUP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/SendBindingSMSCodeViaUPReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_SendBindingSMSCodeViaUP_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPreauthorizationSMSCodeViaUP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/SendPreauthorizationSMSCodeViaUP" message="tns:IPaymentService_SendPreauthorizationSMSCodeViaUP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/SendPreauthorizationSMSCodeViaUPResponse" message="tns:IPaymentService_SendPreauthorizationSMSCodeViaUP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/SendPreauthorizationSMSCodeViaUPReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_SendPreauthorizationSMSCodeViaUP_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAndPreauthOnce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/CancelAndPreauthOnce" message="tns:IPaymentService_CancelAndPreauthOnce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/CancelAndPreauthOnceResponse" message="tns:IPaymentService_CancelAndPreauthOnce_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/CancelAndPreauthOnceReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_CancelAndPreauthOnce_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreauthOnce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/PreauthOnce" message="tns:IPaymentService_PreauthOnce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/PreauthOnceResponse" message="tns:IPaymentService_PreauthOnce_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/PreauthOnceReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_PreauthOnce_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelPreauthOnce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/CancelPreauthOnce" message="tns:IPaymentService_CancelPreauthOnce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/CancelPreauthOnceResponse" message="tns:IPaymentService_CancelPreauthOnce_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/CancelPreauthOnceReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_CancelPreauthOnce_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeductionOnce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/DeductionOnce" message="tns:IPaymentService_DeductionOnce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/DeductionOnceResponse" message="tns:IPaymentService_DeductionOnce_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/DeductionOnceReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_DeductionOnce_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishAndDeduction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/FinishAndDeduction" message="tns:IPaymentService_FinishAndDeduction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/FinishAndDeductionResponse" message="tns:IPaymentService_FinishAndDeduction_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/FinishAndDeductionReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_FinishAndDeduction_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFailedTransactionByBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/GetFailedTransactionByBooking" message="tns:IPaymentService_GetFailedTransactionByBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/GetFailedTransactionByBookingResponse" message="tns:IPaymentService_GetFailedTransactionByBooking_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/GetFailedTransactionByBookingReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_GetFailedTransactionByBooking_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPaymentExchangeMessageHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentExchangeMessageHistory" message="tns:IPaymentService_AddPaymentExchangeMessageHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentExchangeMessageHistoryResponse" message="tns:IPaymentService_AddPaymentExchangeMessageHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentExchangeMessageHistoryReturnResultFault" name="ReturnResultFault" message="tns:IPaymentService_AddPaymentExchangeMessageHistory_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPaymentService" type="tns:IPaymentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogPayment">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/LogPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddUPBindingCard">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/AddUPBindingCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCreditCard">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetUserCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUPBindingCard">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/DeleteUPBindingCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardToken">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetCardToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddPaymentMessageExchange">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/AddPaymentMessageExchange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentMessageState">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetPaymentMessageState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchange">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchangeRetry">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeRetry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMessageExchangeStatus">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/UpdatePaymentMessageExchangeStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentExchangeInfo">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetPaymentExchangeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRetryBookings">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetAllRetryBookings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditCardState">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/UpdateCreditCardState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingStatusAfterPayment">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/UpdateBookingStatusAfterPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentStatusByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetPaymentStatusByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddUPBindingCardViaUP">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/AddUPBindingCardViaUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPaymentStatusViaUP">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/CheckPaymentStatusViaUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCardBindingViaUP">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/CancelCardBindingViaUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendBindingSMSCodeViaUP">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/SendBindingSMSCodeViaUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendPreauthorizationSMSCodeViaUP">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/SendPreauthorizationSMSCodeViaUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAndPreauthOnce">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/CancelAndPreauthOnce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PreauthOnce">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/PreauthOnce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPreauthOnce">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/CancelPreauthOnce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeductionOnce">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/DeductionOnce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FinishAndDeduction">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/FinishAndDeduction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFailedTransactionByBooking">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/GetFailedTransactionByBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddPaymentExchangeMessageHistory">
+      <soap:operation soapAction="http://tempuri.org/IPaymentService/AddPaymentExchangeMessageHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentService">
+    <wsdl:port name="BasicHttpBinding_IPaymentService" binding="tns:BasicHttpBinding_IPaymentService">
+      <soap:address location="http://localhost:8011/PaymentService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

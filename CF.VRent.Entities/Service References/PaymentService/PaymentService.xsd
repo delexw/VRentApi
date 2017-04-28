@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" />
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" />
+  <xs:import schemaLocation="http://localhost:8011/PaymentService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="LogPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="upWrapperBase64" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="logType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogPaymentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUPBindingCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cusWrapperBase64" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tokenBase64" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUPBindingCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUPBindingCardResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetUserCreditCardResult" nillable="true" type="q1:ArrayOfPaymentCard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUPBindingCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUPBindingCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUPBindingCardResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCardTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentMessageExchange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="message" nillable="true" type="q2:PaymentExchangeMessage" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentMessageExchangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPaymentMessageExchangeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentMessageState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentMessageStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentMessageStateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="message" nillable="true" type="q3:PaymentExchangeMessage" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePaymentMessageExchangeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchangeRetry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element minOccurs="0" name="retryFlag" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchangeRetryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePaymentMessageExchangeRetryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchangeStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" minOccurs="0" name="paymentStatus" type="q4:PaymentStatusEnum" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePaymentMessageExchangeStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePaymentMessageExchangeStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentExchangeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentExchangeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetPaymentExchangeInfoResult" nillable="true" type="q5:PaymentExchangeMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRetryBookings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRetryBookingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetAllRetryBookingsResult" nillable="true" type="q6:ArrayOfRetryBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCreditCardState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="state" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCreditCardStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCreditCardStateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingStatusAfterPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="kmId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingStatusAfterPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateBookingStatusAfterPaymentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentStatusByBookingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentStatusByBookingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentStatusByBookingIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUPBindingCardViaUP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customInfoJson" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reservedMsg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUPBindingCardViaUPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUPBindingCardViaUPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPaymentStatusViaUP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="resCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPaymentStatusViaUPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" minOccurs="0" name="CheckPaymentStatusViaUPResult" nillable="true" type="q7:ReturnResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelCardBindingViaUP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelCardBindingViaUPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CancelCardBindingViaUPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendBindingSMSCodeViaUP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cardObjectJson" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendBindingSMSCodeViaUPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendBindingSMSCodeViaUPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPreauthorizationSMSCodeViaUP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cardObjectJson" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPreauthorizationSMSCodeViaUPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendPreauthorizationSMSCodeViaUPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelAndPreauthOnce">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="smsCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+        <xs:element minOccurs="0" name="bookingUserSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelAndPreauthOnceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CancelAndPreauthOnceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreauthOnce">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="smsCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingUserSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="proxyBookingId" type="xs:int" />
+        <xs:element minOccurs="0" name="tempOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreauthOnceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PreauthOnceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelPreauthOnce">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingUserSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelPreauthOnceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeductionOnce">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orderItemIds" nillable="true" type="q8:ArrayOfint" />
+        <xs:element minOccurs="0" name="bookingUserSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userPwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="retry" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeductionOnceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishAndDeduction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
+        <xs:element minOccurs="0" name="kemasBookingId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="proxyBookingId" type="xs:int" />
+        <xs:element minOccurs="0" name="bookingUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingUserSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userSetting" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="priceStructure" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userPwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tempOrderTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="kemasState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishAndDeductionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFailedTransactionByBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFailedTransactionByBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetFailedTransactionByBookingResult" nillable="true" type="q9:ArrayOfPaymentExchangeMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentExchangeMessageHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="message" nillable="true" type="q10:PaymentExchangeMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentExchangeMessageHistoryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

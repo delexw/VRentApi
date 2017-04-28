@@ -1,0 +1,10 @@
+{
+    "ID": "1c9d9c82-d074-45a4-863e-e7eeb2384c64",
+    "UserID": "1c9d9c82-d074-45a4-863e-e7eeb2384c65",
+    "CustomerName": "CRM Factory Engineering",      
+    "MailType": "express",
+    "MailAddress": "Guanghua lu eTower", 
+    "MailPhone": "010861861456454",
+    "AddresseeName": "Peter", 
+    "FapiaoType": 2
+}

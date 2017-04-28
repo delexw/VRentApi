@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="OrderedTest1" storage="d:\project\portal-1\unionpaytest\unionpayoriginaltest\orderedtest1.orderedtest" id="702b2874-2972-4b8e-9092-4094fe62e4d2" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="89109293-24ac-b69a-2848-acc63839e9ff" name="SendPreauthSmsCode" storage="..\bin\debug\unionpaytest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="a5905c11-2f61-4fbb-b7b9-413a68c7f5a8" name="PreauthAndCheckAndComplete" storage="preauthandcheckandcomplete.orderedtest" type="Microsoft.VisualStudio.TestTools.TestTypes.Ordered.AutoSuite, Microsoft.VisualStudio.QualityTools.Tips.OrderedTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

@@ -1,0 +1,10 @@
+{     
+    "ID": null,      
+    "UserID": "6",
+    "CustomerName": "CRM Factory007",      
+    "MailType": "express",
+    "MailAddress": "Chaoyang Guanghua lu", 
+    "MailPhone": "00861861456454654",
+    "AddresseeName": "Peter", 
+    "FapiaoType": 2
+}

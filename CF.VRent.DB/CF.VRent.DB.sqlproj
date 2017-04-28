@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CF.VRent.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{80e69d5a-61e5-4730-924e-ad82cb3a2043}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CF.VRent.DB</RootNamespace>
+    <AssemblyName>CF.VRent.DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>CHECKSUM</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>100</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiNulls>False</AnsiNulls>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <GenerateCreateScript>True</GenerateCreateScript>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunSqlCodeAnalysis>False</RunSqlCodeAnalysis>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\UnionPaymentMessageExchange.sql" />
+    <Build Include="dbo\Tables\FapiaoData.sql" />
+    <Build Include="dbo\Tables\UnionPaymentLog.sql" />
+    <Build Include="dbo\Tables\UnionCardInfo.sql" />
+    <Build Include="dbo\Tables\IndirectFeeTypes.sql" />
+    <Build Include="dbo\Tables\BookingPrice.sql" />
+    <Build Include="dbo\Tables\BookingPayment.sql" />
+    <Build Include="dbo\Tables\BookingIndirectFeePayment.sql" />
+    <Build Include="dbo\Tables\VrentBookings.sql" />
+    <Build Include="dbo\Tables\VrentOrders.sql" />
+    <Build Include="dbo\Tables\GT_FapiaoPreferences.sql" />
+    <Build Include="dbo\Tables\VrentOrderItems.sql" />
+    <Build Include="dbo\Tables\BookingPriceItem.sql" />
+    <Build Include="dbo\Views\UnpaidIndirectFee.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreditCardInfo_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreditCardInfo_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_PaymentLog_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetUserCreditCards.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetUserCreditCardToken.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_PaymentMessageExchange_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_PaymentMessageExchange_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveFapiaoDataDetail.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetMyFapiaoDataByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreateFaPiaoData.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetPaymentExchangeState.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_FapiaoPreferences_UpdateExisting.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentOrders_CreateAndItems.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentOrders_AppendItems.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetPaymentExchangeInfo.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_PaymentMessageExchangeState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_PaymentMessageExchangeRetry_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_IndirectFeeType_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreditCardInfoState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveIndirectFeeTypes.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentBookingsState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetFapiaoPreferences.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetFapiaoPreferenceByUniqueID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetUncompletedDUBBookings.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveOrdersByGroups.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentPrincing_Read.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreateOrderItems.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingPayment_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingPaymentState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveBookingsByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetBookingIndirectFeePaymentByBookingID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingIndirectFeePayment_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentPrincing_CreateByBooking.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_FapiaoPreferences_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingIndirectFeePaymentState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveBookingByBookingID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetTotalIndirectFeeByOrderID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_FapiaoPreferences_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingPayment_CreateViaBooking.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentBookings_CreateWithPricingPaymentInfo.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetPaymentExchangeStateByBookingID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetTotalIndirectFeeForAll.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreateOrderItemsViaBookingID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentBookings_CancelWithPricing.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetNotPaidIndectFeeByOrderID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentBookings_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetBookingPaymentByPaymentID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_BookingPayment_UpdateViaBooking.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_GetBookingPaymentByBookingID.sql" />
+    <Build Include="dbo\User Defined Types\BookingPrice.sql" />
+    <Build Include="dbo\User Defined Types\BookingPriceItem.sql" />
+    <Build Include="dbo\User Defined Types\BookingState.sql" />
+    <Build Include="dbo\User Defined Types\BookingPayment.sql" />
+    <Build Include="dbo\User Defined Types\IndirectFeeType.sql" />
+    <Build Include="dbo\User Defined Types\OrderItemGroup.sql" />
+    <Build Include="dbo\User Defined Types\OrderItem.sql" />
+    <Build Include="dbo\User Defined Types\BookingIndirectFeePayment.sql" />
+    <Build Include="dbo\Tables\FapiaoRequests.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UpdateFaPiaoRequest.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveTotalRows.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveStartRow.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveFapiaoRequestsBySource.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveFapiaoRequestsByProxyBookingID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveFapiaoRequestsByFapiaoRequestID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveByPaging.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreateFaPiaoRequestItems.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_CreateFaPiaoRequest.sql" />
+    <Build Include="dbo\User Defined Types\FapiaoRequestItem.sql" />
+    <Build Include="dbo\Tables\UserTermsConditionAgreement.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_IsFapiaoPreferenceOwner.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_IsBookingOwner.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_EnableDisableFaPiaoRequests.sql" />
+    <Build Include="dbo\Tables\TermsCondition.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UserTermsConditionAgreement_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_TermsCondition_Latest_Get.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_TermsCondition_Create.sql" />
+    <Build Include="dbo\Views\CCBPaymentIndirectFeeTransaction.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Views\CCBPaymentFeeTransaction.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Views\CCBPaymentCancelTransaction.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\User Defined Types\FapiaoSource.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentPrincing_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_RetrieveBookingsWithPaging.sql" />
+    <Build Include="dbo\Tables\UserTransfer.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UserTransfer_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UserTransfer_Retrieve.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UserTransfer_Pending.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_UserTransfer_Add.sql" />
+    <Build Include="dbo\Tables\VrentCountry.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentCountry_Get.sql" />
+    <Build Include="dbo\Stored Procedures\SP_VrentBookings_BulkSync.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\User Defined Types\Booking.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNotes_Retrieve.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNotes_RetrieveByID.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNotes_UpdateByID.sql" />
+    <Build Include="dbo\Tables\DebitNote.sql" />
+    <Build Include="dbo\Tables\DebitNoteDetail.sql" />
+    <Build Include="dbo\Tables\DebitNoteHistory.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteHistory_Retrieve.sql" />
+    <Build Include="dbo\Tables\DUBDetail.sql" />
+    <Build Include="dbo\Tables\CompletedBookings.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteSchedule_Generate.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNotePeriod_RetrieveByState.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_DebitNotes_GenerateByMonth_Dynamic.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNote_RetrieveCompletedPeriods.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteDetail_RetrieveByConditions_Dynamic.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DUBDetail_Retrieve_Dynamic.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteJobSchedule.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_VrentBookings_RetrieveID.sql" />
+    <Build Include="dbo\User Defined Types\KemasID.sql" />
+    <Build Include="dbo\Tables\UnionPaymentMessageHistory.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\GeneralLedgerItemDetail.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\GeneralLedgerItem.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\GeneralLedgerHeader.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\BusinessArea.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Views\DUB_RentalFee_BookingTransaction.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Views\DUB_IndirectFee_BookingTransaction.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_PaymentMessageExchangeHistory_Create.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_GeneralLedgerStatisticForDUB_Get.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_GeneralLedgerStatisticForCCB_Get.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_GeneralLedgerItemDetail_Add.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_GeneralLedgerItem_Add.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_GeneralLedgerHeader_Add.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_BookingFaliedTransaction_Get.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\Sp_RetryBookings_Get.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteTempData_ClearUp.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DebitNoteExcel_PricingCatalog.sql" />
+    <Build Include="dbo\User Defined Types\DebitNoteID.sql" />
+  </ItemGroup>
+</Project>

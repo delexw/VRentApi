@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Setting name="Sign" value="2" order="1">
+  </Setting>
+  <Setting name="DebitOrCredit" value="D" order="2">
+  </Setting>
+  <Setting name="KindOfAccount" value="G" order="3">
+  </Setting>
+  <Setting name="Account" value="0199201254" order="4">
+  </Setting>
+  <Setting name="Amount" value="" order="5">
+  </Setting>
+  <Setting name="AmountInForeignCurrency" value="" order="6">
+  </Setting>
+  <Setting name="BaselineDate" value="" order="7">
+  </Setting>
+  <Setting name="Assignment" value="VRENT" order="8">
+  </Setting>
+  <Setting name="PositionText" value="(Details Comment)" order="9">
+  </Setting>
+  <Setting name="CostCenter" value="" order="10">
+  </Setting>
+  <Setting name="TaxKey" value="" order="11">
+  </Setting>
+  <Setting name="AlternativeReconciliationAccount" value="" order="12">
+  </Setting>
+  <Setting name="PaymentBlock" value="" order="13">
+  </Setting>
+  <Setting name="PartnerBankType" value="" order="14">
+  </Setting>
+  <Setting name="Reference1" value="" order="15">
+  </Setting>
+  <Setting name="Reference2" value="" order="16">
+  </Setting>
+  <Setting name="Reference3" value="" order="17">
+  </Setting>
+  <Setting name="BusinessArea" value="" order="18">
+  </Setting>
+  <Setting name="TaxBaseAmount" value="" order="19">
+  </Setting>
+  <Setting name="DetermineTaxBase" value="" order="20">
+  </Setting>
+  <Setting name="SpecialGLIndicator" value="FC00" order="21">
+  </Setting>
+</Settings>

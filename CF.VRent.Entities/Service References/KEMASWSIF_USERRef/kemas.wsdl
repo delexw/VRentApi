@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n1="http://kemas.de/vwnms/user:rfc:functions" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://kemas.de/vwnms/user" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://kemas.de/vwnms/user" name="kemas" targetNamespace="http://kemas.de/vwnms/user" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:n0="http://kemas.de/vwnms/user:rfc:functions" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://kemas.de/vwnms/user">
+      <xs:complexType name="SearchCondition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Status" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientID" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="User">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Enabled" type="xs:integer" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Department" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="KEMAS_WSIF_RETURNCODE" type="xs:integer" />
+      <xs:complexType name="findUser_Response">
+        <xs:sequence>
+          <xs:element name="Enabled" type="xs:integer" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Department" type="xs:string" />
+          <xs:element name="Phone" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="PNo" type="xs:string" />
+          <xs:element name="CreateDate" type="xs:string" />
+          <xs:element name="Company" type="xs:string" />
+          <xs:element name="PersonInCharge" type="xs:string" />
+          <xs:element name="PrivateMobileNumber" type="xs:string" />
+          <xs:element name="PrivateBankAccount" type="xs:string" />
+          <xs:element name="PrivateEmail" type="xs:string" />
+          <xs:element name="PrivateAddress" type="xs:string" />
+          <xs:element name="BusinessAddress" type="xs:string" />
+          <xs:element name="Valid_to" type="xs:string" />
+          <xs:element name="UserName" type="xs:string" />
+          <xs:element name="Lic" type="xs:int" />
+          <xs:element minOccurs="0" name="Lic_ExpireDate" type="xs:string" />
+          <xs:element minOccurs="0" name="Lic_Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="Lic_LicenseNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Driver">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Drivers">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Drivers" type="ns:Driver" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StdResponse">
+        <xs:sequence>
+          <xs:element name="Result" type="xs:integer" />
+          <xs:element name="success" type="xs:integer" />
+          <xs:element name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Right">
+        <xs:sequence>
+          <xs:element name="Right" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Rights">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Rights" type="ns:Right" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserData">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="PrivateMobileNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Fields" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" type="ns:User" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Error">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:string" />
+          <xs:element name="ErrorMessage" type="xs:string" />
+          <xs:element name="ErrorJSON" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserData2">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="PNo" type="xs:string" />
+          <xs:element name="Enabled" type="xs:int" />
+          <xs:element name="Blocked" type="xs:int" />
+          <xs:element name="Status" type="xs:string" />
+          <xs:element name="AllowChangePwd" type="xs:int" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="VName" type="xs:string" />
+          <xs:element name="Department" type="xs:string" />
+          <xs:element name="Phone" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="CreateDate" type="xs:string" />
+          <xs:element name="Company" type="xs:string" />
+          <xs:element name="PersonInCharge" type="xs:string" />
+          <xs:element name="PrivateMobileNumber" type="xs:string" />
+          <xs:element name="PrivateBankAccount" type="xs:string" />
+          <xs:element name="PrivateEmail" type="xs:string" />
+          <xs:element name="PrivateAddress" type="xs:string" />
+          <xs:element name="BusinessAddress" type="xs:string" />
+          <xs:element name="Valid_to" type="xs:string" />
+          <xs:element name="TypeOfJourney" type="xs:int" />
+          <xs:element name="BirthDay" type="xs:string" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Costcenter" type="xs:string" />
+          <xs:element name="Gender" type="xs:int" />
+          <xs:element name="Nationality" type="xs:string" />
+          <xs:element minOccurs="0" name="License" type="ns:License" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Clients" type="ns:Client" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Roles" type="ns:Role" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Role">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="ID" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Rights" type="ns:Right" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Client">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="Enabled" type="xs:int" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Comment" type="xs:string" />
+          <xs:element name="ContactPerson" type="xs:string" />
+          <xs:element name="Address" type="xs:string" />
+          <xs:element name="ContactInfo" type="xs:string" />
+          <xs:element name="CountEmployees" type="xs:int" />
+          <xs:element name="Deposit" type="xs:int" />
+          <xs:element name="BankAccountInfo" type="xs:string" />
+          <xs:element name="BusinessLicenseID" type="xs:string" />
+          <xs:element name="OrgCodeCertificate" type="xs:string" />
+          <xs:element name="LegalRepresentativeID" type="xs:string" />
+          <xs:element name="Mail" type="xs:string" />
+          <xs:element name="Status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="License">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" />
+          <xs:element name="RFID" type="xs:string" />
+          <xs:element name="State" type="xs:int" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Lic_Expired" type="xs:int" />
+          <xs:element name="ExpireDate" type="xs:string" />
+          <xs:element name="LicenseNumber" type="xs:string" />
+          <xs:element name="LastCheck" type="xs:string" />
+          <xs:element name="DateOfIssue" type="xs:string" />
+          <xs:element minOccurs="0" name="PIN" type="xs:int" />
+          <xs:element minOccurs="0" name="PIN2" type="xs:int" />
+          <xs:element minOccurs="0" name="UsePIN" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangePIN" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangePINWithIdentification" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findUser2Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="UserData" type="ns:UserData2" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUsers2Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element name="rows" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" type="ns:UserData2" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StdRequest">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemsPerPage" type="xs:int" />
+          <xs:element minOccurs="0" name="Page" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getUsers2Request">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns:StdRequest">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="SearchCondition">
+                <xs:complexType>
+                  <xs:complexContent mixed="false">
+                    <xs:extension base="ns:SearchCondition">
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="Username" type="xs:string" />
+                        <xs:element minOccurs="0" name="Name" type="xs:string" />
+                        <xs:element minOccurs="0" name="Client" type="xs:string" />
+                        <xs:element minOccurs="0" name="Phone" type="xs:string" />
+                        <xs:element minOccurs="0" name="LicenseNumber" type="xs:string" />
+                      </xs:sequence>
+                    </xs:extension>
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getRolesResponse">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Roles" type="ns:Role" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IDStructure">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="ID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateUser2Request">
+        <xs:sequence>
+          <xs:element name="SessionID" type="xs:string" />
+          <xs:element name="UserData" type="ns:updateUserData" />
+          <xs:element name="Language" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateUser2Response">
+        <xs:sequence>
+          <xs:element name="Error" type="ns:Error" />
+          <xs:element minOccurs="0" name="UserData" type="ns:UserData2" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateUserData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="PNo" type="xs:string" />
+          <xs:element minOccurs="0" name="Enabled" type="xs:int" />
+          <xs:element minOccurs="0" name="Blocked" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:string" />
+          <xs:element minOccurs="0" name="AllowChangePwd" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="VName" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" type="xs:string" />
+          <xs:element minOccurs="0" name="Mail" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonInCharge" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateMobileNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateBankAccount" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivateAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="BusinessAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="Valid_to" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfJourney" type="xs:int" />
+          <xs:element minOccurs="0" name="Costcenter" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthDay" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" type="xs:int" />
+          <xs:element minOccurs="0" name="Nationality" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentPassword" type="xs:string" />
+          <xs:element minOccurs="0" name="License" type="ns:License" />
+          <xs:element minOccurs="0" name="Clients" type="ns:IDStructure" />
+          <xs:element minOccurs="0" name="Roles" type="ns:IDStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Types">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Elements" type="ns:Element" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Element">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findUser">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findUser_Return">
+    <wsdl:part name="findUser_Response" type="ns:findUser_Response" />
+  </wsdl:message>
+  <wsdl:message name="updateUser">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="Data" type="ns:UserData" />
+  </wsdl:message>
+  <wsdl:message name="updateUser_Return">
+    <wsdl:part name="return" type="xs:integer" />
+  </wsdl:message>
+  <wsdl:message name="forgotPassword">
+    <wsdl:part name="Mail" type="xs:string" />
+    <wsdl:part name="Lang" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="forgotPassword_Return">
+    <wsdl:part name="Response" type="ns:StdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRights">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getRights_Return">
+    <wsdl:part name="Rights" type="ns:Rights" />
+  </wsdl:message>
+  <wsdl:message name="findAllDrivers">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findAllDrivers_Return">
+    <wsdl:part name="Drivers" type="ns:Drivers" />
+  </wsdl:message>
+  <wsdl:message name="getUsers">
+    <wsdl:part name="UserID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getUsers_return">
+    <wsdl:part name="UserList" type="ns:UserList" />
+  </wsdl:message>
+  <wsdl:message name="findUser2Request">
+    <wsdl:part name="UserID" type="xs:string" />
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="findUser2Response">
+    <wsdl:part name="findUser2Response" type="ns:findUser2Response" />
+  </wsdl:message>
+  <wsdl:message name="getUsers2Request">
+    <wsdl:part name="getUsers2Request" type="ns:getUsers2Request" />
+  </wsdl:message>
+  <wsdl:message name="getUsers2Response">
+    <wsdl:part name="getUsers2Response" type="ns:getUsers2Response" />
+  </wsdl:message>
+  <wsdl:message name="getRolesRequest">
+    <wsdl:part name="SessionID" type="xs:string" />
+  </wsdl:message>
+  <wsdl:message name="getRolesResponse">
+    <wsdl:part name="getRolesResponse" type="ns:getRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUser2Request">
+    <wsdl:part name="updateUser2Request" type="ns:updateUser2Request" />
+  </wsdl:message>
+  <wsdl:message name="updateUser2Response">
+    <wsdl:part name="updateUser2Response" type="ns:updateUser2Response" />
+  </wsdl:message>
+  <wsdl:portType name="WSKemasPortType">
+    <wsdl:operation name="findUser">
+      <wsdl:input message="ns:findUser" />
+      <wsdl:output message="ns:findUser_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="ns:updateUser" />
+      <wsdl:output message="ns:updateUser_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="forgotPassword">
+      <wsdl:input message="ns:forgotPassword" />
+      <wsdl:output message="ns:forgotPassword_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getRights">
+      <wsdl:input message="ns:getRights" />
+      <wsdl:output message="ns:getRights_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="findAllDrivers">
+      <wsdl:input message="ns:findAllDrivers" />
+      <wsdl:output message="ns:findAllDrivers_Return" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <wsdl:input message="ns:getUsers" />
+      <wsdl:output message="ns:getUsers_return" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSKemasUserPortType">
+    <wsdl:operation name="findUser2">
+      <wsdl:input message="ns:findUser2Request" />
+      <wsdl:output message="ns:findUser2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsers2">
+      <wsdl:input message="ns:getUsers2Request" />
+      <wsdl:output message="ns:getUsers2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+      <wsdl:input message="ns:getRolesRequest" />
+      <wsdl:output message="ns:getRolesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser2">
+      <wsdl:input message="ns:updateUser2Request" />
+      <wsdl:output message="ns:updateUser2Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKemasUserBinding" type="ns:WSKemasPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="findUser">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/findUser" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/updateUser" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forgotPassword">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/forgotPassword" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRights">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/getRights" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllDrivers">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/findAllDrivers" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/getUsers" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSKemasUser2Binding" type="ns:WSKemasUserPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="findUser2">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/findUser2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers2">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/getUsers2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/getRoles" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser2">
+      <soap:operation soapAction="http://kemas.de/vwnms/user/updateUser2" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://kemas.de/vwnms/user" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kemasService">
+    <wsdl:port name="KemasPort" binding="ns:WSKemasUserBinding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carpoolnet/services/customer_soap/vwnms/?user" />
+    </wsdl:port>
+    <wsdl:port name="KemasUser2Port" binding="ns:WSKemasUser2Binding">
+      <soap:address location="http://download.kemas.de:80/kmn/applications/carsharing/services/customer_soap/vwnms/?user" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

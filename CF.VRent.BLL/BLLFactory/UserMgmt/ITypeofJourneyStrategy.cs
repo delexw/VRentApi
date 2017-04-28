@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CF.VRent.BLL.BLLFactory.UserMgmt
+{
+    public interface ITypeofJourneyStrategy
+    {
+        int GetValueFromKemasValue(int originalValue);
+        int GetValueFromApiInputValue(int originalValue);
+    }
+}

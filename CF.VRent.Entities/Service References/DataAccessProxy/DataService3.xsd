@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" />
+  <xs:element name="UpdateFapiaoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="request" nillable="true" type="q1:ProxyFapiaoRequest" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="opera" nillable="true" type="q2:UserProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFapiaoRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="UpdateFapiaoRequestResult" nillable="true" type="q3:ReturnResultExt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveFapiaoRequestDetailByFapiaoSource">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="proxyBookingID" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fapiaoSource" nillable="true" type="q4:ArrayOfint" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="opera" nillable="true" type="q5:UserProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveFapiaoRequestDetailByFapiaoSourceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveFapiaoRequestDetailByFapiaoSourceResult" nillable="true" type="q6:ReturnResultExtRetrieve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkSyncProxyReservations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="reservations" nillable="true" type="q7:ArrayOfProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkSyncProxyReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="BulkSyncProxyReservationsResult" nillable="true" type="q8:ReturnResultBulkSink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userID" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="states" nillable="true" type="q10:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveReservationsResult" nillable="true" type="q11:ArrayOfProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationsWithPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pagedBookings" nillable="true" type="q12:ProxyReservationsWithPaging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationsWithPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveReservationsWithPagingResult" nillable="true" type="q13:ProxyReservationsWithPaging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationsWithPagingByRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pagedBookings" nillable="true" type="q14:ProxyReservationsWithPaging" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="userInfo" nillable="true" type="q15:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationsWithPagingByRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveReservationsWithPagingByRoleResult" nillable="true" type="q16:ProxyReservationsWithPaging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationByBookingID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="proxyBookingID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveReservationByBookingIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveReservationByBookingIDResult" nillable="true" type="q17:ProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProxyReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="reservation" nillable="true" type="q18:ProxyReservation" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="upPayment" nillable="true" type="q19:ProxyBookingPayment" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pbp" nillable="true" type="q20:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProxyReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="CreateProxyReservationResult" nillable="true" type="q21:ProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelProxyReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="reservation" nillable="true" type="q22:ProxyReservation" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pbp" nillable="true" type="q23:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelProxyReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="CancelProxyReservationResult" nillable="true" type="q24:ProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProxyReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="reservation" nillable="true" type="q25:ProxyReservation" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pbp" nillable="true" type="q26:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProxyReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="UpdateProxyReservationResult" nillable="true" type="q27:ProxyReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPrincingItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="proxyBookingID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPrincingItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="LoadPrincingItemsResult" nillable="true" type="q28:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavingPrincingItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="pbp" nillable="true" type="q29:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavingPrincingItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="SavingPrincingItemsResult" nillable="true" type="q30:ProxyBookingPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingIndirectFeePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="records" nillable="true" type="q31:ArrayOfBookingIndirectFeePayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingIndirectFeePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddBookingIndirectFeePaymentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingIndirectFeePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="records" nillable="true" type="q32:ArrayOfBookingIndirectFeePayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingIndirectFeePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateBookingIndirectFeePaymentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingIndirectFeePaymentByBookingID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingIndirectFeePaymentByBookingIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetBookingIndirectFeePaymentByBookingIDResult" nillable="true" type="q33:ArrayOfBookingIndirectFeePayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWaitingPayDUBBookings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWaitingPayDUBBookingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetWaitingPayDUBBookingsResult" nillable="true" type="q34:ArrayOfProxyReservationPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingPaymentState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="bookp" nillable="true" type="q35:ProxyBookingPayment" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingPaymentStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateBookingPaymentStateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="bookp" nillable="true" type="q36:ProxyBookingPayment" />
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddBookingPaymentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderAfterPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="order" nillable="true" type="q37:ProxyOrder" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderAfterPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOrderAfterPaymentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPaymentEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" minOccurs="0" name="paras" nillable="true" type="q38:EmailParameterEntity" />
+        <xs:element minOccurs="0" name="emailType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="emailAddress" nillable="true" type="q39:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPaymentEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentByPaymentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentByPaymentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetBookingPaymentByPaymentIdResult" nillable="true" type="q40:ArrayOfProxyBookingPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentByBookingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentByBookingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetBookingPaymentByBookingIdResult" nillable="true" type="q41:ArrayOfProxyBookingPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalIndirectFeeForAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalIndirectFeeForAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="GetTotalIndirectFeeForAllResult" nillable="true" type="q42:ArrayOfBookingIndirectFee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMyFapiaoData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userID" type="q43:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMyFapiaoDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveMyFapiaoDataResult" nillable="true" type="q44:ArrayOfProxyFapiao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveFapiaoDataDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FapiaoDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveFapiaoDataDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveFapiaoDataDetailResult" nillable="true" type="q45:ProxyFapiao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveIndirectFeeTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveIndirectFeeTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveIndirectFeeTypesResult" nillable="true" type="q46:ArrayOfIndirectFeeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIndirectFeeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="addedTypes" nillable="true" type="q47:ArrayOfIndirectFeeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIndirectFeeTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddIndirectFeeTypesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindBookingOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groups" nillable="true" type="q48:ArrayOfstring" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="operationInfo" nillable="true" type="q49:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindBookingOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="FindBookingOrdersResult" nillable="true" type="q50:ReturnResultRetrieveOrderItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderItemsByProxyBookingID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="proxyBookingID" type="xs:int" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="orderItems" nillable="true" type="q51:ArrayOfProxyOrderItem" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="operationInfo" nillable="true" type="q52:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderItemsByProxyBookingIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="AddOrderItemsByProxyBookingIDResult" nillable="true" type="q53:ReturnResultAddIndirectFeeItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTransferRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="transferRequest" nillable="true" type="q54:UserTransferRequest" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="operatorInfo" nillable="true" type="q55:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTransferRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="AddTransferRequestResult" nillable="true" type="q56:UserTransferCUDResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTransferRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="transferRequest" nillable="true" type="q57:UserTransferRequest" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="operatorInfo" nillable="true" type="q58:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTransferRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="UpdateTransferRequestResult" nillable="true" type="q59:UserTransferCUDResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTransferRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" minOccurs="0" name="operatorInfo" nillable="true" type="q60:ProxyUserSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTransferRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrieveTransferRequestsResult" nillable="true" type="q61:UserTransferRResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePendingTransferRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userID" type="q62:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePendingTransferRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="RetrievePendingTransferRequestsResult" nillable="true" type="q63:UserTransferRResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCountries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="condition" nillable="true" type="q64:DBConditionObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" minOccurs="0" name="GetAllCountriesResult" nillable="true" type="q65:DBEntityAggregationOfCountryDBConditionObject_Pz_SRG2BH" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCCBStatistic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="condition" nillable="true" type="q66:DBConditionObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCCBStatisticResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" minOccurs="0" name="GetCCBStatisticResult" nillable="true" type="q67:DBEntityAggregationOfGeneralLedgerStatisticCCBDBConditionObject_Pz_SRG2BH" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDUBStatistic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" minOccurs="0" name="condition" nillable="true" type="q68:DBConditionObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDUBStatisticResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" minOccurs="0" name="GetDUBStatisticResult" nillable="true" type="q69:DBEntityAggregationOfGeneralLedgerStatisticDUBDBConditionObject_Pz_SRG2BH" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="entity" nillable="true" type="q70:GeneralLedgerHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGeneralLedgerHeaderResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="entity" nillable="true" type="q71:GeneralLedgerItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGeneralLedgerItemResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerItemDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" minOccurs="0" name="entity" nillable="true" type="q72:GeneralLedgerItemDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGeneralLedgerItemDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGeneralLedgerItemDetailsResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

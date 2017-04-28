@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="da78548a-2308-4dde-8a60-b4f015dbfec3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="CF.VRent.Common" />
+      <ReferencedAssembly AssemblyName="CF.VRent.Email" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8011/BigFileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BigFileService.xsd" MetadataType="Schema" ID="4fc40070-118b-4b11-9cef-72cb152547f2" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd6" />
+    <MetadataFile FileName="BigFileService1.xsd" MetadataType="Schema" ID="ee863c43-08d3-4fd2-b296-904993aa30ff" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BigFileService2.xsd" MetadataType="Schema" ID="bb65391e-01ca-4b49-8faa-883e1bcb6144" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BigFileService3.xsd" MetadataType="Schema" ID="f3151096-b7bb-4f4e-bc87-ae06bf3e3227" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BigFileService4.xsd" MetadataType="Schema" ID="af24125c-64e4-436a-92df-77bdea589ef0" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BigFileService5.xsd" MetadataType="Schema" ID="a4414fa9-b6c0-42fd-adcc-5b29303f7cba" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BigFileService.wsdl" MetadataType="Wsdl" ID="661a35ff-7005-42e7-b634-2af7fb942b83" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?wsdl" />
+    <MetadataFile FileName="BigFileService6.xsd" MetadataType="Schema" ID="6125512b-b025-411f-a6dc-f1c2512339bf" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BigFileService.disco" MetadataType="Disco" ID="484be293-5851-4d86-b83c-6fd461a31275" SourceId="1" SourceUrl="http://localhost:8011/BigFileService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

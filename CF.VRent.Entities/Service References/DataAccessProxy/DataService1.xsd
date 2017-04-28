@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+  <xs:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" />
+  <xs:complexType name="ProxyFapiaoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FapiaoPreference" nillable="true" type="tns:ProxyFapiaoPreference" />
+      <xs:element minOccurs="0" name="FapiaoPreferenceID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="FapiaoSource" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyFapiaoRequest" nillable="true" type="tns:ProxyFapiaoRequest" />
+  <xs:complexType name="ProxyFapiaoPreference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddresseeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FapiaoType" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyFapiaoPreference" nillable="true" type="tns:ProxyFapiaoPreference" />
+  <xs:complexType name="UserProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingOption" type="xs:int" />
+      <xs:element minOccurs="0" name="CorporateID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserProfile" nillable="true" type="tns:UserProfile" />
+  <xs:complexType name="ReturnResultExt">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q1:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ProxyFapiaoRequest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnResultExt" nillable="true" type="tns:ReturnResultExt" />
+  <xs:complexType name="ReturnResultExtRetrieve">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q2:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfProxyFapiaoRequest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnResultExtRetrieve" nillable="true" type="tns:ReturnResultExtRetrieve" />
+  <xs:complexType name="ArrayOfProxyFapiaoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyFapiaoRequest" nillable="true" type="tns:ProxyFapiaoRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyFapiaoRequest" nillable="true" type="tns:ArrayOfProxyFapiaoRequest" />
+  <xs:complexType name="ArrayOfProxyReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyReservation" nillable="true" type="tns:ProxyReservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyReservation" nillable="true" type="tns:ArrayOfProxyReservation" />
+  <xs:complexType name="ProxyReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingOption" type="xs:int" />
+      <xs:element minOccurs="0" name="CorporateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorporateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatorFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatorID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatorLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentTotalAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DateBegin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IndirectFeeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="KemasBookingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="KemasBookingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PricingDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartLocationID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserLastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyReservation" nillable="true" type="tns:ProxyReservation" />
+  <xs:complexType name="ReturnResultBulkSink">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q3:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InsertedCnt" type="xs:int" />
+          <xs:element minOccurs="0" name="SyncData" nillable="true" type="tns:ArrayOfProxyReservation" />
+          <xs:element minOccurs="0" name="UpdatedCnt" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnResultBulkSink" nillable="true" type="tns:ReturnResultBulkSink" />
+  <xs:complexType name="ProxyReservationsWithPaging">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemsPerPage" type="xs:int" />
+      <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RawOrderByConditions" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RawWhereConditions" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Reservations" nillable="true" type="tns:ArrayOfProxyReservation" />
+      <xs:element minOccurs="0" name="TotalPage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyReservationsWithPaging" nillable="true" type="tns:ProxyReservationsWithPaging" />
+  <xs:complexType name="ProxyBookingPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+      <xs:element minOccurs="0" name="UPPaymentID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyBookingPayment" nillable="true" type="tns:ProxyBookingPayment" />
+  <xs:complexType name="ProxyBookingPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PrincingItems" nillable="true" type="tns:ArrayOfProxyPrincingItem" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="State" type="xs:short" />
+      <xs:element minOccurs="0" name="TagID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timestamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyBookingPrice" nillable="true" type="tns:ProxyBookingPrice" />
+  <xs:complexType name="ArrayOfProxyPrincingItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyPrincingItem" nillable="true" type="tns:ProxyPrincingItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyPrincingItem" nillable="true" type="tns:ArrayOfProxyPrincingItem" />
+  <xs:complexType name="ProxyPrincingItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingPriceID" type="xs:int" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Group" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyPrincingItem" nillable="true" type="tns:ProxyPrincingItem" />
+  <xs:complexType name="ArrayOfBookingIndirectFeePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookingIndirectFeePayment" nillable="true" type="tns:BookingIndirectFeePayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookingIndirectFeePayment" nillable="true" type="tns:ArrayOfBookingIndirectFeePayment" />
+  <xs:complexType name="BookingIndirectFeePayment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q6:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreateOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OrderItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="State" type="xs:int" />
+          <xs:element minOccurs="0" name="UPPaymentID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingIndirectFeePayment" nillable="true" type="tns:BookingIndirectFeePayment" />
+  <xs:complexType name="ArrayOfProxyReservationPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyReservationPayment" nillable="true" type="tns:ProxyReservationPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyReservationPayment" nillable="true" type="tns:ArrayOfProxyReservationPayment" />
+  <xs:complexType name="ProxyReservationPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingType" type="xs:int" />
+      <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KemasBookingID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KemasBookingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KemasState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentID" type="xs:int" />
+      <xs:element minOccurs="0" name="PriceDetials" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceStructure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyReservationPayment" nillable="true" type="tns:ProxyReservationPayment" />
+  <xs:complexType name="ProxyOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProxyBookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyOrder" nillable="true" type="tns:ProxyOrder" />
+  <xs:complexType name="ArrayOfProxyBookingPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyBookingPayment" nillable="true" type="tns:ProxyBookingPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyBookingPayment" nillable="true" type="tns:ArrayOfProxyBookingPayment" />
+  <xs:complexType name="ArrayOfBookingIndirectFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookingIndirectFee" nillable="true" type="tns:BookingIndirectFee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookingIndirectFee" nillable="true" type="tns:ArrayOfBookingIndirectFee" />
+  <xs:complexType name="BookingIndirectFee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BookingIndirectFeePayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fee" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OrderItemIDs" nillable="true" type="q7:ArrayOfint" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingIndirectFee" nillable="true" type="tns:BookingIndirectFee" />
+  <xs:complexType name="ArrayOfProxyFapiao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyFapiao" nillable="true" type="tns:ProxyFapiao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyFapiao" nillable="true" type="tns:ArrayOfProxyFapiao" />
+  <xs:complexType name="ProxyFapiao">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountExclVAT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AmountIncVAT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BankAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPAddresseeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPCustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPMailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPMailingAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPMailingPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FapiaoCode" type="xs:int" />
+      <xs:element minOccurs="0" name="FapiaoNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="FapiaoState" type="xs:int" />
+      <xs:element minOccurs="0" name="FapiaoType" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IssueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesQuantity" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SpecMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxRate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxRegistrationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitMeasure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyFapiao" nillable="true" type="tns:ProxyFapiao" />
+  <xs:complexType name="ArrayOfIndirectFeeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndirectFeeType" nillable="true" type="tns:IndirectFeeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndirectFeeType" nillable="true" type="tns:ArrayOfIndirectFeeType" />
+  <xs:complexType name="IndirectFeeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Group" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceType" type="tns:IndirectFeeSourceType" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndirectFeeType" nillable="true" type="tns:IndirectFeeType" />
+  <xs:simpleType name="IndirectFeeSourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BuiltIn" />
+      <xs:enumeration value="WriteIn" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IndirectFeeSourceType" nillable="true" type="tns:IndirectFeeSourceType" />
+  <xs:complexType name="ReturnResultRetrieveOrderItems">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q8:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfProxyOrderItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnResultRetrieveOrderItems" nillable="true" type="tns:ReturnResultRetrieveOrderItems" />
+  <xs:complexType name="ArrayOfProxyOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProxyOrderItem" nillable="true" type="tns:ProxyOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProxyOrderItem" nillable="true" type="tns:ArrayOfProxyOrderItem" />
+  <xs:complexType name="ProxyOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountExclVAT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AmountIncVAT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesQuantity" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SpecMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:short" />
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxRate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitMeasure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProxyOrderItem" nillable="true" type="tns:ProxyOrderItem" />
+  <xs:complexType name="ReturnResultAddIndirectFeeItems">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q9:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AffectedCnt" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnResultAddIndirectFeeItems" nillable="true" type="tns:ReturnResultAddIndirectFeeItems" />
+  <xs:complexType name="UserTransferRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApproverID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ClientIDFrom" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ClientIDTo" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" type="tns:UserTransferState" />
+      <xs:element minOccurs="0" name="TransferResult" type="tns:UserTransferResult" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserTransferRequest" nillable="true" type="tns:UserTransferRequest" />
+  <xs:simpleType name="UserTransferState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserTransferState" nillable="true" type="tns:UserTransferState" />
+  <xs:simpleType name="UserTransferResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Approve">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Reject">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserTransferResult" nillable="true" type="tns:UserTransferResult" />
+  <xs:complexType name="UserTransferCUDResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q10:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:UserTransferRequest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserTransferCUDResult" nillable="true" type="tns:UserTransferCUDResult" />
+  <xs:complexType name="UserTransferRResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" base="q11:ReturnResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfUserTransferRequest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserTransferRResult" nillable="true" type="tns:UserTransferRResult" />
+  <xs:complexType name="ArrayOfUserTransferRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserTransferRequest" nillable="true" type="tns:UserTransferRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserTransferRequest" nillable="true" type="tns:ArrayOfUserTransferRequest" />
+  <xs:complexType name="ArrayOfCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountry" nillable="true" type="tns:ArrayOfCountry" />
+  <xs:complexType name="Country">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q12:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CN_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COUNTRY_KEY" type="xs:int" />
+          <xs:element minOccurs="0" name="DE_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EN_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISO_CODE_2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISO_CODE_3" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Country" nillable="true" type="tns:Country" />
+  <xs:complexType name="ArrayOfGeneralLedgerStatisticCCB">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeneralLedgerStatisticCCB" nillable="true" type="tns:GeneralLedgerStatisticCCB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeneralLedgerStatisticCCB" nillable="true" type="tns:ArrayOfGeneralLedgerStatisticCCB" />
+  <xs:complexType name="GeneralLedgerStatisticCCB">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q13:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessArea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CCBTotalCredit" type="xs:double" />
+          <xs:element minOccurs="0" name="CCBTotalDebit" type="xs:double" />
+          <xs:element minOccurs="0" name="ClientID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DebitNoteID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralLedgerStatisticCCB" nillable="true" type="tns:GeneralLedgerStatisticCCB" />
+  <xs:complexType name="ArrayOfGeneralLedgerStatisticDUB">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeneralLedgerStatisticDUB" nillable="true" type="tns:GeneralLedgerStatisticDUB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeneralLedgerStatisticDUB" nillable="true" type="tns:ArrayOfGeneralLedgerStatisticDUB" />
+  <xs:complexType name="GeneralLedgerStatisticDUB">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q14:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingType" type="xs:int" />
+          <xs:element minOccurs="0" name="BusinessArea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" minOccurs="0" name="FeeType" type="q15:VRentDataDictionay.GLItemDetailType" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="RentCreditPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="RentDebitPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="RentPaymentID" type="xs:int" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" minOccurs="0" name="RentalPaymentStatus" type="q16:PaymentStatusEnum" />
+          <xs:element minOccurs="0" name="RentalTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralLedgerStatisticDUB" nillable="true" type="tns:GeneralLedgerStatisticDUB" />
+  <xs:complexType name="GeneralLedgerHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q17:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" minOccurs="0" name="HeaderType" type="q18:VRentDataDictionay.GLHeaderType" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PostingEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PostingFrom" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralLedgerHeader" nillable="true" type="tns:GeneralLedgerHeader" />
+  <xs:complexType name="GeneralLedgerItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q19:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessArea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientID" type="ser:guid" />
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HeaderID" type="xs:long" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" minOccurs="0" name="ItemType" type="q20:VRentDataDictionay.GLItemType" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PostingBody" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralLedgerItem" nillable="true" type="tns:GeneralLedgerItem" />
+  <xs:complexType name="GeneralLedgerItemDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q21:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DebitNoteID" type="xs:int" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" minOccurs="0" name="DetailType" type="q22:VRentDataDictionay.GLItemDetailType" />
+          <xs:element minOccurs="0" name="HeaderID" type="xs:long" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="ItemID" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeneralLedgerItemDetail" nillable="true" type="tns:GeneralLedgerItemDetail" />
+</xs:schema>

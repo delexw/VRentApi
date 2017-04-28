@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8011/TermsConditionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8011/TermsConditionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+  <xs:complexType name="ArrayOfTermsCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TermsCondition" nillable="true" type="tns:TermsCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTermsCondition" nillable="true" type="tns:ArrayOfTermsCondition" />
+  <xs:complexType name="TermsCondition">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q1:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" type="xs:int" />
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DisplayTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:int" />
+          <xs:element minOccurs="0" name="IsNewVersion" type="xs:int" />
+          <xs:element minOccurs="0" name="Key" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:int" />
+          <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TermsCondition" nillable="true" type="tns:TermsCondition" />
+  <xs:complexType name="UserTermsConditionAgreement">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" base="q2:DBEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TCID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserTermsConditionAgreement" nillable="true" type="tns:UserTermsConditionAgreement" />
+</xs:schema>

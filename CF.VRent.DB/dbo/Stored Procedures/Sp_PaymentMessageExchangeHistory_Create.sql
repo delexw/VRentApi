@@ -1,0 +1,38 @@
+﻿CREATE PROCEDURE [dbo].[Sp_PaymentMessageExchangeHistory_Create]
+@UniqueID nvarchar(50), @CreatedOn datetime, @Operation nvarchar(50), @UserID nvarchar(50), @PreAuthID nvarchar(MAX), @PreAuthQueryID nvarchar(MAX), @PreAuthDateTime nvarchar(50), @PreAuthPrice nvarchar(10), @PreAuthTempOrderID nvarchar(50), @SmsCode nvarchar(MAX), @State int, @CardID nvarchar(50), @LastPaymentID int, @DeductionPrice nvarchar(10), @RealPreAuthPrice nvarchar(10), @PaymentID int
+WITH EXEC AS CALLER
+AS
+INSERT INTO UnionPaymentMessageHistory (Unique_ID,
+                                        CreatedOn,
+                                        Operation,
+                                        [User_ID],
+                                        PreAuthID,
+                                        PreAuthQueryID,
+                                        PreAuthDateTime,
+                                        PreAuthPrice,
+                                        PreAuthTempOrderID,
+                                        SmsCode,
+                                        State,
+                                        Card_ID,
+                                        LastPaymentID,
+                                        DeductionPrice,
+                                        RealPreAuthPrice,
+                                        PaymentMessageID,
+                                        ArchiveTime)
+VALUES (@UniqueID,
+        @CreatedOn,
+        @Operation,
+        @UserID,
+        @PreAuthID,
+        @PreAuthQueryID,
+        @PreAuthDateTime,
+        @PreAuthPrice,
+        @PreAuthTempOrderID,
+        @SmsCode,
+        @State,
+        @CardID,
+        @LastPaymentID,
+        @DeductionPrice,
+        @RealPreAuthPrice,
+        @PaymentID,
+        getDate ());

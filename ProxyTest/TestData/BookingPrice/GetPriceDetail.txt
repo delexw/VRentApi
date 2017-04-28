@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Price pre-auth="4000.25" timestamp="" id="" total="2800.25">
+	<Rental total="2100.25">
+		<item type="business_hours" total="100">
+            <period from="2013-10-10 18:30:00" to="2013-10-10 20:00:00"/>
+            <period from="2013-10-11 08:00:00" to="2013-10-11 08:30:00"/>
+        </item>
+		<item type="night" from="2013-10-10 18:00:00" to="2010-10-10 20:00:00" total="500"/>
+		<item type="holiday" from="2013-10-10 18:00:00" to="2010-10-10 20:00:00" total="1500"/>
+		<item type="weekend" from="2013-10-10 18:00:00" to="2010-10-10 20:00:00" total="0"/>
+	</Rental>
+	<InsuranceFee total="50"/>
+    <Fuel kilometer="20" total="50"/>
+    <Fine total="600">
+		<item type="cancel" description="" total=""/>
+		<item type="late_return" description="" total="500"/>
+		<item type="shorten" description="" total="100"/>
+		<item type="over_max_kilometer" description="" total="100"/>
+	</Fine>
+</Price>

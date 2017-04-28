@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UserCompany>
+  <Company key="EUC" enabled="true">
+    <!--Set End User Client Name-->
+    <KemasCompany name="End User" id="" enabled="true" isDefault="true" customerCode="" companyCode="4073"></KemasCompany>
+  </Company>
+  <Company key="CUC" enabled="true">
+    <KemasCompany name="NMS" id="" enabled="true" isDefault="true" customerCode="" companyCode="4081"></KemasCompany>
+  </Company>
+</UserCompany>

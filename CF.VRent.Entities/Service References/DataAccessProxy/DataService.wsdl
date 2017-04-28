@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.DataAccessProxy.Entities" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.UserContracts" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Email.EmailSender.Entity" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities.DBEntity.Aggregation" />
+      <xsd:import schemaLocation="http://localhost:8011/DataService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/CF.VRent.UPSDK" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataService_UpdateFapiaoRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFapiaoRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateFapiaoRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFapiaoRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateFapiaoRequest_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q1:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFapiaoRequestDetailByFapiaoSource" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFapiaoRequestDetailByFapiaoSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q2:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkSyncProxyReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkSyncProxyReservations" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkSyncProxyReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkSyncProxyReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_BulkSyncProxyReservations_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q3:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservations" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservations_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q4:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationsWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationsWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPaging_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q5:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPagingByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationsWithPagingByRole" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPagingByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationsWithPagingByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationsWithPagingByRole_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q6:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationByBookingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationByBookingID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationByBookingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReservationByBookingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveReservationByBookingID_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q7:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateProxyReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProxyReservation" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateProxyReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProxyReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateProxyReservation_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q8:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CancelProxyReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProxyReservation" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CancelProxyReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProxyReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CancelProxyReservation_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q9:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateProxyReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProxyReservation" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateProxyReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProxyReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateProxyReservation_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q10:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_LoadPrincingItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPrincingItems" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_LoadPrincingItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPrincingItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_LoadPrincingItems_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q11:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SavingPrincingItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavingPrincingItems" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SavingPrincingItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavingPrincingItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SavingPrincingItems_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q12:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingIndirectFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookingIndirectFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingIndirectFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookingIndirectFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingIndirectFeePayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q13:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingIndirectFeePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingIndirectFeePayment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingIndirectFeePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingIndirectFeePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingIndirectFeePayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q14:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingIndirectFeePaymentByBookingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingIndirectFeePaymentByBookingID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingIndirectFeePaymentByBookingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingIndirectFeePaymentByBookingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingIndirectFeePaymentByBookingID_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q15:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWaitingPayDUBBookings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWaitingPayDUBBookings" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWaitingPayDUBBookings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWaitingPayDUBBookingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWaitingPayDUBBookings_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q16:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingPaymentState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingPaymentState" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingPaymentState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookingPaymentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateBookingPaymentState_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q17:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookingPayment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookingPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddBookingPayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q18:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderAfterPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderAfterPayment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderAfterPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderAfterPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderAfterPayment_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q19:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SendPaymentEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPaymentEmail" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SendPaymentEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPaymentEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SendPaymentEmail_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q20:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByPaymentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingPaymentByPaymentId" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByPaymentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingPaymentByPaymentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByPaymentId_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q21:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingPaymentByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingPaymentByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBookingPaymentByBookingId_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q22:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTotalIndirectFeeForAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalIndirectFeeForAll" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTotalIndirectFeeForAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalIndirectFeeForAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTotalIndirectFeeForAll_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q23:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveMyFapiaoData_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMyFapiaoData" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveMyFapiaoData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMyFapiaoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveMyFapiaoData_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q24:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoDataDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFapiaoDataDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoDataDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFapiaoDataDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveFapiaoDataDetail_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q25:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveIndirectFeeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveIndirectFeeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveIndirectFeeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveIndirectFeeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveIndirectFeeTypes_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q26:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddIndirectFeeTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddIndirectFeeTypes" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddIndirectFeeTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddIndirectFeeTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddIndirectFeeTypes_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q27:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindBookingOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindBookingOrders" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindBookingOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindBookingOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindBookingOrders_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q28:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderItemsByProxyBookingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderItemsByProxyBookingID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderItemsByProxyBookingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderItemsByProxyBookingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddOrderItemsByProxyBookingID_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q29:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddTransferRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransferRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddTransferRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransferRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddTransferRequest_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q30:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateTransferRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransferRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateTransferRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransferRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateTransferRequest_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q31:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveTransferRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTransferRequests" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveTransferRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTransferRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrieveTransferRequests_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q32:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrievePendingTransferRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePendingTransferRequests" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrievePendingTransferRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePendingTransferRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RetrievePendingTransferRequests_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q33:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAllCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountries" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAllCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAllCountries_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q34:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCCBStatistic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCCBStatistic" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCCBStatistic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCCBStatisticResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCCBStatistic_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q35:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDUBStatistic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDUBStatistic" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDUBStatistic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDUBStatisticResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDUBStatistic_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q36:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerHeader" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerHeader_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q37:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerItem" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItem_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q38:ReturnResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItemDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerItemDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItemDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeneralLedgerItemDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddGeneralLedgerItemDetails_ReturnResultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/CF.VRent.Common.Entities" name="detail" element="q39:ReturnResult" />
+  </wsdl:message>
+  <wsdl:portType name="IDataService">
+    <wsdl:operation name="UpdateFapiaoRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateFapiaoRequest" message="tns:IDataService_UpdateFapiaoRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateFapiaoRequestResponse" message="tns:IDataService_UpdateFapiaoRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UpdateFapiaoRequestReturnResultFault" name="ReturnResultFault" message="tns:IDataService_UpdateFapiaoRequest_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFapiaoRequestDetailByFapiaoSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoRequestDetailByFapiaoSource" message="tns:IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoRequestDetailByFapiaoSourceResponse" message="tns:IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoRequestDetailByFapiaoSourceReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveFapiaoRequestDetailByFapiaoSource_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkSyncProxyReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/BulkSyncProxyReservations" message="tns:IDataService_BulkSyncProxyReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/BulkSyncProxyReservationsResponse" message="tns:IDataService_BulkSyncProxyReservations_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/BulkSyncProxyReservationsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_BulkSyncProxyReservations_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveReservations" message="tns:IDataService_RetrieveReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsResponse" message="tns:IDataService_RetrieveReservations_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveReservations_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationsWithPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPaging" message="tns:IDataService_RetrieveReservationsWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPagingResponse" message="tns:IDataService_RetrieveReservationsWithPaging_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPagingReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveReservationsWithPaging_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationsWithPagingByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPagingByRole" message="tns:IDataService_RetrieveReservationsWithPagingByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPagingByRoleResponse" message="tns:IDataService_RetrieveReservationsWithPagingByRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationsWithPagingByRoleReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveReservationsWithPagingByRole_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationByBookingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationByBookingID" message="tns:IDataService_RetrieveReservationByBookingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationByBookingIDResponse" message="tns:IDataService_RetrieveReservationByBookingID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveReservationByBookingIDReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveReservationByBookingID_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProxyReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CreateProxyReservation" message="tns:IDataService_CreateProxyReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateProxyReservationResponse" message="tns:IDataService_CreateProxyReservation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CreateProxyReservationReturnResultFault" name="ReturnResultFault" message="tns:IDataService_CreateProxyReservation_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelProxyReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CancelProxyReservation" message="tns:IDataService_CancelProxyReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CancelProxyReservationResponse" message="tns:IDataService_CancelProxyReservation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/CancelProxyReservationReturnResultFault" name="ReturnResultFault" message="tns:IDataService_CancelProxyReservation_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProxyReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateProxyReservation" message="tns:IDataService_UpdateProxyReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateProxyReservationResponse" message="tns:IDataService_UpdateProxyReservation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UpdateProxyReservationReturnResultFault" name="ReturnResultFault" message="tns:IDataService_UpdateProxyReservation_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPrincingItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/LoadPrincingItems" message="tns:IDataService_LoadPrincingItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/LoadPrincingItemsResponse" message="tns:IDataService_LoadPrincingItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/LoadPrincingItemsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_LoadPrincingItems_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavingPrincingItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SavingPrincingItems" message="tns:IDataService_SavingPrincingItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SavingPrincingItemsResponse" message="tns:IDataService_SavingPrincingItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/SavingPrincingItemsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_SavingPrincingItems_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBookingIndirectFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddBookingIndirectFeePayment" message="tns:IDataService_AddBookingIndirectFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddBookingIndirectFeePaymentResponse" message="tns:IDataService_AddBookingIndirectFeePayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddBookingIndirectFeePaymentReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddBookingIndirectFeePayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingIndirectFeePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateBookingIndirectFeePayment" message="tns:IDataService_UpdateBookingIndirectFeePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateBookingIndirectFeePaymentResponse" message="tns:IDataService_UpdateBookingIndirectFeePayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UpdateBookingIndirectFeePaymentReturnResultFault" name="ReturnResultFault" message="tns:IDataService_UpdateBookingIndirectFeePayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingIndirectFeePaymentByBookingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetBookingIndirectFeePaymentByBookingID" message="tns:IDataService_GetBookingIndirectFeePaymentByBookingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetBookingIndirectFeePaymentByBookingIDResponse" message="tns:IDataService_GetBookingIndirectFeePaymentByBookingID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetBookingIndirectFeePaymentByBookingIDReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetBookingIndirectFeePaymentByBookingID_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWaitingPayDUBBookings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetWaitingPayDUBBookings" message="tns:IDataService_GetWaitingPayDUBBookings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetWaitingPayDUBBookingsResponse" message="tns:IDataService_GetWaitingPayDUBBookings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetWaitingPayDUBBookingsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetWaitingPayDUBBookings_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingPaymentState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateBookingPaymentState" message="tns:IDataService_UpdateBookingPaymentState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateBookingPaymentStateResponse" message="tns:IDataService_UpdateBookingPaymentState_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UpdateBookingPaymentStateReturnResultFault" name="ReturnResultFault" message="tns:IDataService_UpdateBookingPaymentState_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBookingPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddBookingPayment" message="tns:IDataService_AddBookingPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddBookingPaymentResponse" message="tns:IDataService_AddBookingPayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddBookingPaymentReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddBookingPayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderAfterPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddOrderAfterPayment" message="tns:IDataService_AddOrderAfterPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddOrderAfterPaymentResponse" message="tns:IDataService_AddOrderAfterPayment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddOrderAfterPaymentReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddOrderAfterPayment_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPaymentEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SendPaymentEmail" message="tns:IDataService_SendPaymentEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SendPaymentEmailResponse" message="tns:IDataService_SendPaymentEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/SendPaymentEmailReturnResultFault" name="ReturnResultFault" message="tns:IDataService_SendPaymentEmail_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingPaymentByPaymentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByPaymentId" message="tns:IDataService_GetBookingPaymentByPaymentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByPaymentIdResponse" message="tns:IDataService_GetBookingPaymentByPaymentId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByPaymentIdReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetBookingPaymentByPaymentId_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingPaymentByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByBookingId" message="tns:IDataService_GetBookingPaymentByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByBookingIdResponse" message="tns:IDataService_GetBookingPaymentByBookingId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetBookingPaymentByBookingIdReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetBookingPaymentByBookingId_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalIndirectFeeForAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetTotalIndirectFeeForAll" message="tns:IDataService_GetTotalIndirectFeeForAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetTotalIndirectFeeForAllResponse" message="tns:IDataService_GetTotalIndirectFeeForAll_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetTotalIndirectFeeForAllReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetTotalIndirectFeeForAll_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMyFapiaoData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveMyFapiaoData" message="tns:IDataService_RetrieveMyFapiaoData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveMyFapiaoDataResponse" message="tns:IDataService_RetrieveMyFapiaoData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveMyFapiaoDataReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveMyFapiaoData_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFapiaoDataDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoDataDetail" message="tns:IDataService_RetrieveFapiaoDataDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoDataDetailResponse" message="tns:IDataService_RetrieveFapiaoDataDetail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveFapiaoDataDetailReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveFapiaoDataDetail_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveIndirectFeeTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveIndirectFeeTypes" message="tns:IDataService_RetrieveIndirectFeeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveIndirectFeeTypesResponse" message="tns:IDataService_RetrieveIndirectFeeTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveIndirectFeeTypesReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveIndirectFeeTypes_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddIndirectFeeTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddIndirectFeeTypes" message="tns:IDataService_AddIndirectFeeTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddIndirectFeeTypesResponse" message="tns:IDataService_AddIndirectFeeTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddIndirectFeeTypesReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddIndirectFeeTypes_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindBookingOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/FindBookingOrders" message="tns:IDataService_FindBookingOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/FindBookingOrdersResponse" message="tns:IDataService_FindBookingOrders_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/FindBookingOrdersReturnResultFault" name="ReturnResultFault" message="tns:IDataService_FindBookingOrders_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderItemsByProxyBookingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddOrderItemsByProxyBookingID" message="tns:IDataService_AddOrderItemsByProxyBookingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddOrderItemsByProxyBookingIDResponse" message="tns:IDataService_AddOrderItemsByProxyBookingID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddOrderItemsByProxyBookingIDReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddOrderItemsByProxyBookingID_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransferRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddTransferRequest" message="tns:IDataService_AddTransferRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddTransferRequestResponse" message="tns:IDataService_AddTransferRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddTransferRequestReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddTransferRequest_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransferRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateTransferRequest" message="tns:IDataService_UpdateTransferRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateTransferRequestResponse" message="tns:IDataService_UpdateTransferRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/UpdateTransferRequestReturnResultFault" name="ReturnResultFault" message="tns:IDataService_UpdateTransferRequest_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTransferRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrieveTransferRequests" message="tns:IDataService_RetrieveTransferRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrieveTransferRequestsResponse" message="tns:IDataService_RetrieveTransferRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrieveTransferRequestsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrieveTransferRequests_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePendingTransferRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RetrievePendingTransferRequests" message="tns:IDataService_RetrievePendingTransferRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RetrievePendingTransferRequestsResponse" message="tns:IDataService_RetrievePendingTransferRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/RetrievePendingTransferRequestsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_RetrievePendingTransferRequests_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetAllCountries" message="tns:IDataService_GetAllCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetAllCountriesResponse" message="tns:IDataService_GetAllCountries_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetAllCountriesReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetAllCountries_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCBStatistic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCCBStatistic" message="tns:IDataService_GetCCBStatistic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCCBStatisticResponse" message="tns:IDataService_GetCCBStatistic_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetCCBStatisticReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetCCBStatistic_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDUBStatistic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetDUBStatistic" message="tns:IDataService_GetDUBStatistic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetDUBStatisticResponse" message="tns:IDataService_GetDUBStatistic_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/GetDUBStatisticReturnResultFault" name="ReturnResultFault" message="tns:IDataService_GetDUBStatistic_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerHeader" message="tns:IDataService_AddGeneralLedgerHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerHeaderResponse" message="tns:IDataService_AddGeneralLedgerHeader_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerHeaderReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddGeneralLedgerHeader_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItem" message="tns:IDataService_AddGeneralLedgerItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItemResponse" message="tns:IDataService_AddGeneralLedgerItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItemReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddGeneralLedgerItem_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerItemDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItemDetails" message="tns:IDataService_AddGeneralLedgerItemDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItemDetailsResponse" message="tns:IDataService_AddGeneralLedgerItemDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDataService/AddGeneralLedgerItemDetailsReturnResultFault" name="ReturnResultFault" message="tns:IDataService_AddGeneralLedgerItemDetails_ReturnResultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateFapiaoRequest">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateFapiaoRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFapiaoRequestDetailByFapiaoSource">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveFapiaoRequestDetailByFapiaoSource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="BulkSyncProxyReservations">
+      <soap:operation soapAction="http://tempuri.org/IDataService/BulkSyncProxyReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservations">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationsWithPaging">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveReservationsWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationsWithPagingByRole">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveReservationsWithPagingByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReservationByBookingID">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveReservationByBookingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProxyReservation">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CreateProxyReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelProxyReservation">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CancelProxyReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProxyReservation">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateProxyReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPrincingItems">
+      <soap:operation soapAction="http://tempuri.org/IDataService/LoadPrincingItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SavingPrincingItems">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SavingPrincingItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddBookingIndirectFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddBookingIndirectFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingIndirectFeePayment">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateBookingIndirectFeePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingIndirectFeePaymentByBookingID">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetBookingIndirectFeePaymentByBookingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaitingPayDUBBookings">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetWaitingPayDUBBookings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookingPaymentState">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateBookingPaymentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddBookingPayment">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddBookingPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderAfterPayment">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddOrderAfterPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendPaymentEmail">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SendPaymentEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingPaymentByPaymentId">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetBookingPaymentByPaymentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingPaymentByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetBookingPaymentByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalIndirectFeeForAll">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetTotalIndirectFeeForAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMyFapiaoData">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveMyFapiaoData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFapiaoDataDetail">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveFapiaoDataDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveIndirectFeeTypes">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveIndirectFeeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddIndirectFeeTypes">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddIndirectFeeTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindBookingOrders">
+      <soap:operation soapAction="http://tempuri.org/IDataService/FindBookingOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderItemsByProxyBookingID">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddOrderItemsByProxyBookingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransferRequest">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddTransferRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransferRequest">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateTransferRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTransferRequests">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrieveTransferRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePendingTransferRequests">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RetrievePendingTransferRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetAllCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCBStatistic">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetCCBStatistic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDUBStatistic">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetDUBStatistic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerHeader">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddGeneralLedgerHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerItem">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddGeneralLedgerItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddGeneralLedgerItemDetails">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddGeneralLedgerItemDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ReturnResultFault">
+        <soap:fault use="literal" name="ReturnResultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="BasicHttpBinding_IDataService" binding="tns:BasicHttpBinding_IDataService">
+      <soap:address location="http://localhost:8011/DataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
